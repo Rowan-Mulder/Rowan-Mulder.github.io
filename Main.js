@@ -1,0 +1,1 @@
+alert("This website is for testing purposes only");
