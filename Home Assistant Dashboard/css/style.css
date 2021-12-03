@@ -1,0 +1,196 @@
+body {
+    background: #0a0f17;
+    color: #DDD;
+}
+
+#columnContainer {
+    height: 100vh;
+}
+
+.column {
+
+}
+    .column1 {
+        background: linear-gradient(to bottom, #FFFFFF0F, #FFFFFF02);
+        border-right: 10px double #fff1;
+        padding: 0;
+    }
+        .menuBtn {
+            padding-block: 15px;
+            font-size: 25px;
+            font-weight: bold;
+            width: 100%;
+            text-align: left;
+            padding-left: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+            .menuBtn .material-icons {
+                padding-inline: 10px;
+                font-size: 30px;  /* Preferred icon size */
+            }
+        .menuButtonSettings {
+            position: absolute !important;
+            bottom: 0;
+            left: 0;
+        }
+    .column2 {
+
+    }
+        .console {
+            font-family: Consolas;
+            background: #040505;
+            padding: 2px;
+            border: 2px solid #777;
+        }
+            .consoleHeader {
+                display: flex;
+                align-items: center;
+                border: 2px solid #777;
+                padding: 5px;
+            }
+                .consoleHeader>span:nth-child(2) {
+                    color: #FFF5;
+                }
+                .consoleCloseBtn {
+                    display: flex;
+                    background: #000;
+                    color: #FFF;
+                    transition: 0.1s;
+                    border: 1px solid #7778;
+                    margin-left: auto;
+                }
+                .consoleCloseBtn:hover {
+                    background: #F00;
+                }
+                .consoleCloseBtn:active {
+                    background: #500;
+                }
+            .consoleBody {
+                border: 2px solid #777;
+                height: 280px;
+                font-size: 10px;
+                line-break: auto;
+                overflow-y: scroll;
+            }
+            .consolePopup {
+                position: absolute;
+            }
+                .consolePopup .consoleBody {
+                    font-size: 25px;
+                    color: red;
+                    height: 60px;
+                }
+            #consolePopup1 {
+                left: 25px;
+                top: 100px;
+            }
+            #consolePopup2 {
+                left: 50px;
+                top: 200px;
+            }
+            #consolePopup3 {
+                left: 75px;
+                top: 300px;
+            }
+            #consolePopup4 {
+                left: 100px;
+                top: 400px;
+            }
+    .column3 {
+        margin: auto;
+    }
+        .camera {
+            border: 2px solid white;
+            height: 400px;
+            background: #000;
+            margin-inline: 20px;
+        }
+            .cameraBtn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 50px;
+                height: 50px;
+                border: 2px solid white;
+                user-select: none;
+                cursor: pointer;
+                font-size: 25px;
+                font-weight: 900;
+            }
+            .cameraName {
+                z-index: 100;
+                font-size: 25px;
+                font-weight: 900;
+                font-style: italic;
+                color: #FFF6;
+            }
+
+#company {
+    width: 100%;
+    background: #DDD;
+    color: #0a0f17;
+    font-weight: 900;
+    padding: 20px;
+    text-align: center;
+    user-select: none;
+}
+
+
+/* Modern buttons
+*********************************************************************************/
+.modernBtn {
+    position: relative;
+    font-size: 1.5rem;
+    color: #DDD;
+    background: #4965a800;
+    text-transform: uppercase;
+    border: 2px solid #888;
+    overflow: hidden;
+}
+    .modernBtn:hover {
+        box-shadow: 1px 1px 25px 10px rgba(73, 101, 168, 0.28);
+    }
+    .modernBtn:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(73, 101, 168, 0.28),
+                transparent
+        );
+        transition: all 450ms;
+    }
+    .modernBtn:hover:before {
+        left: 100%;
+    }
+    .modernBtn:active {
+        background: #4965a81c;
+        transition: 0.1s;
+    }
+/* Animaties
+*********************************************************************************/
+.blinking {
+    animation: blinking 1.5s forwards infinite;
+}
+
+@keyframes blinking {
+    0%, 49% {
+        color: #FFFF;
+    }
+    49%, 50% {
+        color: #FFFF;
+    }
+    50%, 99% {
+        color: #FFF0;
+    }
+    99%, 100% {
+        color: #FFF0;
+    }
+}

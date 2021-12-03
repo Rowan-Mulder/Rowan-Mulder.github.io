@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Assistant Dashboard</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <div id="columnContainer" class="d-flex flex-row">
+        <div class="col-2 position-relative column column1">
+            <!-- Nav sidebar -->
+            <div id="company">
+                Home Assistant V1.0
+            </div>
+            <button class="modernBtn menuBtn">
+                <span class="material-icons">home</span>
+                <span>Home</span>
+            </button>
+            <button class="modernBtn menuBtn">
+                <span class="material-icons">notifications</span>
+                <span>Alarm</span>
+            </button>
+            <button class="modernBtn menuBtn" onclick="ConsoleOpenClose()">
+                <span class="material-icons">security</span>
+                <span>Security</span>
+            </button>
+            <button class="modernBtn menuBtn menuButtonSettings">
+                <span class="material-icons">settings</span>
+                <span>Settings</span>
+            </button>
+        </div>
+        <div class="col-4 column column2">
+            <!-- Consoles -->
+            <div>
+                <div class="console m-2 d-none">
+                    <div class="consoleHeader">
+                        <span class="material-icons pr-2">terminal</span>
+                        <span class="mr-2">Admin: CMD</span>
+                        <button class="btn consoleCloseBtn material-icons" onclick="consoleCloseBtnClick()">close</button>
+                    </div>
+                    <div class="consoleBody p-1" onclick="ConsoleStartStop()">
+                        <span id="consoleLog"></span>
+                        <span id="consoleCursor" class="blinking">▄</span>
+                    </div>
+                </div>
+                <div>
+                    <div id="consolePopup1" class="consolePopup console m-2 d-none" style="z-index: 101">
+                        <div class="consoleHeader">
+                            <span class="material-icons pr-2">terminal</span>
+                            <span class="mr-2">Admin: CMD</span>
+                            <button class="btn consoleCloseBtn material-icons" onclick="consoleWindowClose(this)">close</button>
+                        </div>
+                        <div class="consoleBody p-1">
+                            YOU
+                        </div>
+                    </div>
+                    <div id="consolePopup2" class="consolePopup console m-2 d-none" style="z-index: 102">
+                        <div class="consoleHeader">
+                            <span class="material-icons pr-2">terminal</span>
+                            <span class="mr-2">Admin: CMD</span>
+                            <button class="btn consoleCloseBtn material-icons" onclick="consoleWindowClose(this)">close</button>
+                        </div>
+                        <div class="consoleBody p-1">
+                            CAN'T
+                        </div>
+                    </div>
+                    <div id="consolePopup3" class="consolePopup console m-2 d-none" style="z-index: 103">
+                        <div class="consoleHeader">
+                            <span class="material-icons pr-2">terminal</span>
+                            <span class="mr-2">Admin: CMD</span>
+                            <button class="btn consoleCloseBtn material-icons" onclick="consoleWindowClose(this)">close</button>
+                        </div>
+                        <div class="consoleBody p-1">
+                            STOP
+                        </div>
+                    </div>
+                    <div id="consolePopup4" class="consolePopup console m-2 d-none" style="z-index: 104">
+                        <div class="consoleHeader">
+                            <span class="material-icons pr-2">terminal</span>
+                            <span class="mr-2">Admin: CMD</span>
+                            <button class="btn consoleCloseBtn material-icons" onclick="consoleWindowClose(this)">close</button>
+                        </div>
+                        <div class="consoleBody p-1">
+                            ME
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sensors -->
+        </div>
+        <div class="col-6 column column3">
+            <!-- Camera's -->
+            <div class="camera row position-relative">
+                <div class="position-absolute w-100 text-center cameraName">Webcam (PC Rowan)</div>
+
+            </div>
+            <div class="camera row position-relative mt-5">
+                <div class="position-absolute w-100 text-center cameraName">Security cameras</div>
+                <div class="col-10">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="col-2 d-flex flex-column justify-content-around align-items-center">
+                    <span class="cameraBtn">1</span>
+                    <span class="cameraBtn">2</span>
+                    <span class="cameraBtn">3</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
