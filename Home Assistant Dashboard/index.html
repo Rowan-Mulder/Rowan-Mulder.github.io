@@ -15,17 +15,55 @@
     <script defer src="main.js"></script>
 </head>
 <body>
+    <!-- Notifications -->
+    <div id="updateNotification" class="notification d-none">
+        <div class="notificationHeader">
+            <span>Home Assistant Update</span>
+            <span class="notificationCloseBtn material-icons" onclick="notificationWindowClose(this)">close</span>
+        </div>
+        <div class="notificationBody">
+            <div class="notificationPart1">
+                <img class="blinkingOpacity" src="images/notificationAlert.ico" width="50" height="50" alt="Alert">
+                <h4 class="font-weight-bold">New version is now available</h4>
+                <p>Your Home Assistant can now be updated to be geared up with its newest additions. Not updating regularly may cause problems to your Home Assistant.</p>
+                <button class="btn notificationUpdateBtn" onclick="UpdateProgram()">Update</button>
+            </div>
+            <div class="notificationPart2 d-none">
+                <p class="updatingMessage">Updating...</p>
+                <div class="w-100 position-relative">
+                    <meter class="w-100 updateMeter" value="0" max="100"></meter>
+                    <span class="updateMeterText position-absolute">0%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="smartsenseTasks" class="notification d-none">
+        <div class="notificationHeader">
+            <span>Smartsense alert</span>
+            <span class="notificationCloseBtn material-icons" onclick="notificationWindowClose(this)">close</span>
+        </div>
+        <div class="notificationBody">
+            <h4 class="font-weight-bold">You still have some tasks to do:</h4>
+            <ol class="smartsenseTasklist">
+                <li class="d-none alert-warning">The hay of your guinea pigs needs to be replaced.</li>
+                <li class="d-none">Home Assistant V2.0 will run more optimally with more RAM installed. Purchase and install some more RAM asap.</li>
+                <li class="d-none">The keys under your doormat are estimated to be unsafe from burglary. It's recommended not to keep these here.</li>
+            </ol>
+        </div>
+    </div>
+
     <div id="columnContainer" class="d-flex flex-row">
         <div class="col-2 position-relative column column1">
             <!-- Nav sidebar -->
             <div id="company">
-                Home Assistant V1.0
+                Home Assistant V2.0
             </div>
             <button class="modernBtn menuBtn">
                 <span class="material-icons">home</span>
                 <span>Home</span>
             </button>
-            <button class="modernBtn menuBtn">
+            <button class="modernBtn menuBtn" onclick="OpenUpdateNotification()">
                 <span class="material-icons">notifications</span>
                 <span>Alarm</span>
             </button>
@@ -98,7 +136,7 @@
 
             <!-- Sensors -->
         </div>
-        <div class="col-6 column column3">
+        <div class="col-6 column column3 d-none">
             <!-- Camera's -->
             <div class="camera row position-relative">
                 <div class="position-absolute w-100 text-center cameraName">Webcam (PC Rowan)</div>

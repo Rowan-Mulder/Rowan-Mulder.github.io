@@ -3,11 +3,13 @@ let consoleWindow = document.querySelector(".console")
 let consoleBody = document.querySelector(".consoleBody")
 let consoleLog = document.getElementById("consoleLog")
 let consoleCursor = document.getElementById("consoleCursor")
+let updateNotification = document.getElementById("updateNotification")
+let smartsenseTasks = document.getElementById("smartsenseTasks")
 let isConsoleOpen = false
 let isConsoleProcessing = false
 let isConsoleCursorBlinking = true
 let consoleProcessingInterval
-let consolePopupWindowsOpened = 0;
+let consolePopupWindowsOpened = 0
 let consolePopupWindows = [
     document.getElementById("consolePopup1"),
     document.getElementById("consolePopup2"),
@@ -70,11 +72,11 @@ function ConsoleProcessingStartStop() {
             switch (Math.round(Math.random() * 50)) {
                 case 5:
                 case 10:
-                    consoleLog.innerHTML += ("<br>Warning: " + randomConsoleLogArray[0][Math.round(Math.random() * randomConsoleLogArray[0].length)] + " may be operating incorrectly<br>").fontcolor("orange");
-                    break;
+                    consoleLog.innerHTML += ("<br>Warning: " + randomConsoleLogArray[0][Math.round(Math.random() * randomConsoleLogArray[0].length)] + " may be operating incorrectly<br>").fontcolor("orange")
+                    break
                 case 20:
-                    consoleLog.innerHTML += ("<br>Error: process interrupted by faulty " + randomConsoleLogArray[1][Math.round(Math.random() * randomConsoleLogArray[1].length)] + "<br>").fontcolor("red");
-                    break;
+                    consoleLog.innerHTML += ("<br>Error: process interrupted by faulty " + randomConsoleLogArray[1][Math.round(Math.random() * randomConsoleLogArray[1].length)] + "<br>").fontcolor("red")
+                    break
             }
             consoleBody.scrollTop = consoleBody.scrollHeight
         }, 50)
@@ -122,4 +124,51 @@ document.querySelectorAll(".cameraName").forEach((x) => {
 
 function SwitchDesignMode(mode) {
     document.designMode = mode
+}
+
+function OpenUpdateNotification() {
+    updateNotification.classList.remove("d-none")
+}
+
+function notificationWindowClose(notificationWindow) {
+    notificationWindow.parentNode.parentNode.classList.add("d-none")
+}
+
+function UpdateProgram() {
+    document.querySelector(".notificationPart1").classList.add("d-none")
+    document.querySelector(".notificationPart2").classList.remove("d-none")
+    setTimeout(() => {
+        let updater = setInterval(() => {
+            document.querySelector(".updateMeter").value += Math.round(Math.random() * 5)
+            document.querySelector(".updateMeterText").innerHTML = document.querySelector(".updateMeter").value + "%";
+        }, 30)
+        setTimeout(() => {
+            clearInterval(updater)
+            document.querySelector(".updateMeter").value = 100
+            document.querySelector(".updatingMessage").innerHTML = "Update complete!"
+            document.querySelector(".updateMeterText").innerHTML = "100%";
+
+            setTimeout(() => {
+                document.querySelectorAll(".notification").forEach((x) => {
+                    x.classList.add("d-none")
+                })
+
+                setTimeout(() => {
+                    smartsenseTasksDisplay()
+                }, 1000)
+            }, 2000)
+        }, 1000)
+    }, 500)
+}
+
+function smartsenseTasksDisplay() {
+    smartsenseTasks.classList.remove("d-none");
+    let smartsenseTaskPosition = 0;
+    let smartsenseTaskRevealer = setInterval(() => {
+        let smartsenseTasklist = document.querySelector(".smartsenseTasklist").children
+        smartsenseTasklist[smartsenseTaskPosition++].classList.remove("d-none");
+        if (smartsenseTaskPosition === smartsenseTasklist.length) {
+            clearInterval(smartsenseTaskRevealer);
+        }
+    }, 1500);
 }
