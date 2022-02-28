@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Rowan Mulder">
+		<meta name="description" content="A variant of a different clock I made, but with a dartboard design">
+		<title>A functioning dartboard-styled clock</title>
+		<link href="Style.css" type="text/css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:700i&display=swap" rel="stylesheet">
+		<script defer src="Main.js"></script>
+	</head>
+	
+	<body id="body" onload="JsCheck(), UpdateTime()">
+		<header>
+				<p id="time"></p>
+				
+				<label for="sliderHours">Hours</label>
+				<input id="sliderHours" type="range" min="0" step="1" max="23" value="0" oninput="ChangeRotationHours()">
+				<br>
+				<label for="sliderMinutes">Minutes</label>
+				<input id="sliderMinutes" type="range" min="0" step="1" max="59" value="0" oninput="ChangeRotationMinutes()">
+				<br>
+				<label for="sliderSeconds">Seconds</label>
+				<input id="sliderSeconds" type="range" min="0" step="1" max="59" value="0" oninput="ChangeRotationSeconds()">
+				<br>
+				<span id="period">A.M./P.M.</span>
+				
+				<!-- Dit zou een PHP project worden, maar is richting Javascript gegaan. Vandaar het nagemaakte PHP logo hieronder. -->
+				<div id="PHPOuter" style="display: none">
+					<div id="PHPInner" class="absoluteCenter">
+						<span id="PHPText" class="absoluteCenter">
+							php
+						</span>
+					</div>
+				</div>
+		</header>
+		
+		<main>
+			<div id="clock" class="absoluteCenter">
+				<div id="clockRoot">
+					<img id="dartBoard" class="absoluteCenter" src="./Images/Dartboard.png" alt="dartboard">
+					<img id="arrowHours" class="absoluteCenter" src="./Images/arrowHours.png" alt="arrowHours">
+					<img id="arrowSeconds" class="absoluteCenter" src="./Images/arrowSeconds.png" alt="arrowSeconds">
+					<img id="arrowMinutes" class="absoluteCenter" src="./Images/arrowMinutes.png" alt="arrowMinutes">
+					<!-- Auteur van de klok, maar is weg gelaten. -->
+					<image style="display: none" id="auteur" src="./Images/author.png" width="260px" height="auto" alt="Rowan Mulder">
+					<div id="arrowFinishSeconds" class="absoluteCenter"></div>
+					<div id="arrowFinishMinutes" class="absoluteCenter"></div>
+					<div id="arrowFinishHours" class="absoluteCenter"></div>
+				</div>
+			</div>
+		</main>
+		
+		<footer></footer>
+	</body>
+</html>
