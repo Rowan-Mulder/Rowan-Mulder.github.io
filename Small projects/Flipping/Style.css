@@ -1,0 +1,102 @@
+* {
+	font-family: Calibri;
+	margin: 0;
+}
+
+body {
+	margin: 5px 5px;
+	overflow-y: scroll;
+	background-color: #111;
+}
+
+.horizontalAlignRight {
+	text-align: left;
+}
+.horizontalAlignMiddle {
+	text-align: center;
+}
+.horizontalAlignRight {
+	text-align: right;
+}
+.verticalAlignMiddle {
+	position: relative;
+	left: 0;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+.highlight {
+	font-weight: bolder;
+	background-color: #CEC;
+}
+
+header, footer {
+	height: 50px;
+	box-shadow: inset 0px 0px 10px 0 #000;
+	background-color: #334;
+	border-radius: 7px;
+	color: #EEE;
+}
+main {
+	margin: 15px 0;
+}
+
+h2, h3, h4, h5, h6 {
+	margin: 8px 0;
+	color: #DDD;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+	th {
+		padding: 0 15px;
+		height: 30px;
+		white-space: nowrap;
+		border-bottom: 5px solid #224;
+		background-color: #111;
+		color: #EEE;
+	}
+	td {
+		padding: 10px 3px;
+		border-right: 1px solid rgba(50, 50, 100, 0.3);
+		border-bottom: 2px solid #99F;
+	}
+
+button {
+	font-size: 20px;
+	font-weight: bolder;
+	border-color: #336;
+	background-color: #559;
+	color: #FFF;
+}
+
+#flipListGroup, #buyLimitsGroup, #statistics1Group, #statistics2Group {
+	margin-bottom: 30px;
+}
+#flipListContainer, #buyLimitsContainer, #statistics1Container, #statistics2Container, #statistics3Container {
+	display: inline-block;
+	border: 2px ridge #559;
+}
+	#flipListTable {
+		display: block;
+		height: 250px;
+		overflow-y: scroll;
+		resize: vertical;
+		border-bottom: 4px solid #224;
+		background-color: #778;
+	}
+
+	#controlGroupFlipList {
+		height: 30px;
+		text-align: right;
+		background-color: #334;
+		color: #FFF;
+	}
+		#buttonAddListing {
+			height: 100%;
+		}
+input {
+	background-color: #EEE;
+}

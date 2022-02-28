@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<!--
+	Future updates:
+	-	Search box which hides all listings that do not match on input.
+    -   Show Buy limits in reversed order. The most recent fliplisting should be on top.
+	-	Settings in the header including:
+		-	Option to only display one listing per unique item, that will be its latest entry (look at the index, not the position. possibly need to re-introduct indexing?).
+		-	Option to disable scroll on body or rather seperate the scroll from the statistics by making a group of them.
+		-	Option for true dark mode? Especially the textinputs and the fliplisting alternating background color.
+		-	Option to unclutter fliplist by joining dupes.
+-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Rowan Mulder">
+		<meta name="description" content="Market Flipping Tool">
+		<title>Market Flipping Tool</title>
+		<link href="Style.css" type="text/css" rel="stylesheet">
+		<script defer src="Main.js" ></script>
+	</head>
+	
+	<body>
+		<header class="horizontalAlignMiddle">
+			<h1 class="verticalAlignMiddle">Market Flipping Tool</h1>
+		</header>
+		
+        <main>
+            <div id="flipListGroup">
+                <h3>Flip list</h3>
+                <div id="flipListContainer">
+                    <table id="flipListTable" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Item name</th>
+                                <th>Buy price</th>
+                                <th>Sell price</th>
+                                <th>Amount</th>
+                                <th>Profits</th>
+                                <th>Duplicate flip listing</th>
+                                <th>Remove flip listing</th>
+                            </tr>
+                        </thead>
+                        <tbody id="flipListBody">
+
+                        </tbody>
+                    </table>
+
+                    <div id="controlGroupFlipList">
+                        <span>Add flip listing</span>
+                        <button id="buttonAddListing" onclick="AddFlipListing(1)" title="Add a new flip listing">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="buyLimitsGroup">
+                <h3>Buy limits</h3>
+                <div id="buyLimitsContainer">
+                    <table id="buyLimitsTable">
+                        <thead>
+                            <tr>
+                                <th>Item name</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="buyLimitsBody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="statistics1Group">
+                <h3>Totals</h3>
+                <div id="statistics1Container">
+                    <table id="statistics1Table" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Total profits</th>
+                                <th>Amount of unique items flipped</th>
+                                <th>Total amount of flips</th>
+                                <th>Total amount of items flipped</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="horizontalAlignRight" id="totalProfits">0</td>
+                                <td class="horizontalAlignRight" id="amountOfUniqueItemsFlipped">0</td>
+                                <td class="horizontalAlignRight" id="totalAmountOfFlips">0</td>
+                                <td class="horizontalAlignRight" id="totalAmountOfItemsFlipped">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="statistics2Group">
+                <h3>Most profiting item</h3>
+                <div id="statistics2Container">
+                    <table id="statistics2Table" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Item name</th>
+                                <th>Average profit each item</th>
+                                <th>Average buy price</th>
+                                <th>Average Sell price</th>
+                                <th>Profits combined</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="mostProfitingItemItemName" class="horizontalAlignMiddle">-</td>
+                                <td id="mostProfitingItemAverageProfitEachItem" class="horizontalAlignRight">-</td>
+                                <td id="mostProfitingItemAverageBuyPrice" class="horizontalAlignRight">-</td>
+                                <td id="mostProfitingItemAverageSellPrice" class="horizontalAlignRight">-</td>
+                                <td id="mostProfitingItemProfitsCombined" class="horizontalAlignRight highlight">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="statistics3Group">
+                <h3>Highest average flip margin</h3>
+                <div id="statistics3Container">
+                    <table id="statistics3Table" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Item name</th>
+                                <th>Average profit each item</th>
+                                <th>Average buy price</th>
+                                <th>Average sell price</th>
+                                <th>Profits combined</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="highestAverageFlipMarginItemName" class="horizontalAlignMiddle">-</td>
+                                <td id="highestAverageFlipMarginAverageProfitEachItem" class="horizontalAlignRight highlight">-</td>
+                                <td id="highestAverageFlipMarginAverageBuyPrice" class="horizontalAlignRight">-</td>
+                                <td id="highestAverageFlipMarginAverageSellPrice" class="horizontalAlignRight">-</td>
+                                <td id="highestAverageFlipMarginProfitsCombined" class="horizontalAlignRight">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+		
+		<footer class="horizontalAlignMiddle">
+            <p class="verticalAlignMiddle">Developed by Rowan Mulder - 2020</p>
+        </footer>
+	</body>
+</html>

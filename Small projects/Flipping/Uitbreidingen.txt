@@ -1,0 +1,3 @@
+Discord bot die berichten stuurt wanneer een item waarop je subscribed bent een bepaald bedrag heeft bereikt.
+Maak een account, waarop een aantal gegevens opgeslagen worden.
+	Een optie om de items te clearen en een optie om de volledige profits en andere statistics te clearen apart houden.
