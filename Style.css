@@ -1,8 +1,13 @@
 body {
-	margin: 0;
-	background: #EEE;
+	margin: 10px;
+	background: #EEE2CE;
 }
 
-h1 {
-	color: #030;
+h1, h2, h3, h4, h5, h6 {
+	color: #896F34;
+}
+
+.card {
+	margin-bottom: 40px;
+	margin-right: 25px;
 }
