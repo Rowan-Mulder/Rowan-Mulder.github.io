@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML Calculator</title>
+		<link href="style.css" type="text/css" rel="stylesheet">
+	</head>
+
+
+	<body>
+		<div name="Audio Fragments">
+			<audio id="glass-break">
+				<source src="audio/glassbreak.mp3" type="audio/mpeg">
+			</audio>
+			<audio id="tada">
+				<source src="audio/tada.mp3" type="audio/mpeg">
+			</audio>
+			<audio id="cashregister">
+				<source src="audio/cashregister.mp3" type="audio/mpeg">
+			</audio>
+			<audio id="explosion">
+				<source src="audio/explosion.mp3" type="audio/mpeg">
+			</audio>
+		</div>
+		<div name="Buttons">
+			<input type="button" id="Smash-Calculator-Button" name="Smash the calculator" onclick="smashCalculator(),hideZero()" value="Lose your temper">
+			<input type="button" id="Flip-Calculator-Button" name="Flip the calculator" onclick="flipCalculator()" value="Change the batteries?">
+			<input type="button" id="Go-To-Store-Button" name="Go to the store" onclick="goToStore()" value="Go to the store for new batteries">
+			<input type="button" id="Back-To-Back-Button" name="Return from store to calculator" onclick="backToBack()" value="Return home from the store">
+			<input type="button" id="Insert-Batteries-Button" name="Insert new batteries" onclick="insertBatteries()" value="Insert your newly purchased batteries">
+			<input type="button" id="Close-Lid-Button" name="Close the battery lid" onclick="closeLid()" value="Close the battery lid">
+			<div id="After-Purchase-Allow-Returning-To-Front">
+				<input type="button" id="Return-To-Front" name="Return to the front" onclick="backToFront()" value="Try if it's fixed?">
+			</div>
+			<input type="button" id="Change-Battery-Button" name="Change battery" onclick="tryPowerOn()" value="Try to turn it on now?">
+			<input type="button" id="End-With-A-Bang" name="See if it works again" onclick="endWithABang()" value="">
+			<div id="Bang"></div>
+			<input type="button" id="Reset-Button" name="Reset everything to its original state" onclick="resetAll()" value="Reset">
+		</div>
+		<div id="Break-Alert">
+			<div id="Break-Alert-Bar">
+				<p id="Alert-Title">calc.exe</p>
+				<button id="Break-Alert-Close" onclick="closeBreakAlert()"><p>×</p></button>
+			</div>
+			<ul>
+				<li>Calc.exe has stopped working</li>
+				<li>You feel somehow better</li>
+			</ul>
+		</div>
+		<div id="Fix-Alert">
+			<div id="Fix-Alert-Bar">
+				<p id="Alert-Title">calc.exe</p>
+				<button id="Fix-Alert-Close" onclick="closeFixAlert()"><p>×</p></button>
+			</div>
+			<ul>
+				<li>Calc.exe has started working again</li>
+			</ul>
+		</div>
+		<div id="Explode-Alert">
+			<div id="Explode-Alert-Bar">
+				<p id="Alert-Title">calc.exe</p>
+				<button id="Explode-Alert-Close" disabled><p id="Disabled-Alert-Close">×</p></button>
+			</div>
+			<ul>
+				<li>The batteries were faulty</li>
+			</ul>
+			<input type="button" id="Sue-The-Store" name="Sue the battery store" onclick="sueTheBatteryStore()" value="Sue the battery store">
+			<input type="button" id="Forget-It-1" name="Accept your loss" onclick="forgetIt()" value="Forget it">
+		</div>
+		<div id="Store-Closed-Alert">
+			<div id="Store-Closed-Alert-Bar">
+				<p id="Alert-Title">calc.exe</p>
+				<button id="Store-Closed-Alert-Close" disabled><p>×</p></button>
+			</div>
+			<ul>
+				<li>The battery store closed down for today</li>
+				<input type="button" id="Forget-It-2" name="Accept your loss" onclick="forgetIt()" value="Forget it">
+			</ul>
+		</div>
+		<div id="Calc-Case-On">
+			<div id="Calc-Case-top-buttons">
+				<button id="Power-Switch-On" onclick="powerOff()">Power Switch</button>
+				<button id="Battery-Life" >100%</button>
+				<input id="Calc-Math-Input" type="text" name="input translated to js math" value="" readonly>
+				<input id="Calc-Math" type="text" name="translated js math to answer" value="" readonly>
+				<form id="decimal-options">
+					<input type="radio" id="DOdot" name="decimaltypeoption" onchange="decimalCheck(),clearAll()" value="dot" checked="checked">.<br>
+					<input type="radio" id="DOcomma" name="decimaltypeoption" onchange="decimalCheck(),clearAll()" value="comma">,
+				</form>
+			</div>
+			<table>
+				<tr>
+					<td class="Calc-display" colspan="5">
+						<div class="Calc-Input-Output-display">
+							<input id="calcReset" type="text" name="Reset" value="0" readonly>
+							<input id="Calc-input-output" type="text" name="display" value="" readonly>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td onclick="input7(),hideZero()" class="CalcButtonBG" id="Calc-input-7"><button type="button">7</button></td>
+					<td onclick="input8(),hideZero()" class="CalcButtonBG" id="Calc-input-8"><button type="button">8</button></td>
+					<td onclick="input9(),hideZero()" class="CalcButtonBG" id="Calc-input-9"><button type="button">9</button></td>
+					<td onclick="equalsAnswer(),inputDivide(),hideZero()" class="CalcButtonBG" id="Calc-input-divide"><button type="button">/</button></td>
+					<td onclick="clearAll(),displayZero()" class="CalcButtonBG" id="Calc-input-ClearEverything"><button type="button">CE</button></td>
+				</tr>
+				<tr>
+					<td onclick="input4(),hideZero()" class="CalcButtonBG" id="Calc-input-4"><button type="button">4</button></td>
+					<td onclick="input5(),hideZero()" class="CalcButtonBG" id="Calc-input-5"><button type="button">5</button></td>
+					<td onclick="input6(),hideZero()" class="CalcButtonBG" id="Calc-input-6"><button type="button">6</button></td>
+					<td onclick="equalsAnswer(),inputMultiply(),hideZero()" class="CalcButtonBG" id="Calc-input-multiply"><button type="button">*</button></td>
+					<td onclick="clearNow(),displayZero()" class="CalcButtonBG" id="Calc-input-clear"><button type="button">C</button></td>
+				</tr>
+				<tr>
+					<td onclick="input1(),hideZero()" class="CalcButtonBG" id="Calc-input-1"><button type="button">1</button></td>
+					<td onclick="input2(),hideZero()" class="CalcButtonBG" id="Calc-input-2"><button type="button">2</button></td>
+					<td onclick="input3(),hideZero()" class="CalcButtonBG" id="Calc-input-3"><button type="button">3</button></td>
+					<td onclick="equalsAnswer(),inputSubtract(),hideZero()" class="CalcButtonBG" id="Calc-input-subtract"><button type="button">-</button></td>
+					<td onclick="equalsAnswer(),hideZero(),evaluateStringCalculation()" class="CalcButtonBG" id="Calc-input-equals" rowspan="2"><button type="button">=</button></td>
+				</tr>
+				<tr>
+					<td onclick="input0(),hideZero()" class="CalcButtonBG" id="Calc-input-0" colspan="2"><button type="button">0</button></td>
+					<td onclick="decimalCheck(),hideZero()" class="CalcButtonBG" id="Calc-input-decimal"><button id="innerHTMLDecimalType" type="button">.</button></td>
+					<td onclick="equalsAnswer(),inputAdd(),hideZero()" class="CalcButtonBG" id="Calc-input-add"><button type="button">+</button></td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="Calc-Case-Off">
+			<div id="Calc-Case-top-buttons">
+				<button id="Power-Switch-Off" onclick="powerOn(),clearAll(),displayZero()">Power Switch</button>
+				<button id="Battery-Life"></button>
+				<input id="Calc-Math-Input" value="" readonly>
+				<input id="Calc-Math" value="" readonly>
+				<form id="decimal-options">
+					<input type="radio" id="DOdot">.<br>
+					<input type="radio" id="DOcomma">,
+				</form>
+			</div>
+			<table>
+				<tr>
+					<td class="Calc-display" colspan="5">
+						<div class="Calc-Input-Output-display">
+							<input id="Calc-input-output" type="text" name="display" value="" readonly>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td id="Calc-input-7"><button type="button">7</button></td>
+					<td id="Calc-input-8"><button type="button">8</button></td>
+					<td id="Calc-input-9"><button type="button">9</button></td>
+					<td id="Calc-input-divide"><button type="button">/</button></td>
+					<td id="Calc-input-ClearEverything"><button type="button">CE</button></td>
+				</tr>
+				<tr>
+					<td id="Calc-input-4"><button type="button">4</button></td>
+					<td id="Calc-input-5"><button type="button">5</button></td>
+					<td id="Calc-input-6"><button type="button">6</button></td>
+					<td id="Calc-input-multiply"><button type="button">*</button></td>
+					<td id="Calc-input-clear"><button type="button">C</button></td>
+				</tr>
+				<tr>
+					<td id="Calc-input-1"><button type="button">1</button></td>
+					<td id="Calc-input-2"><button type="button">2</button></td>
+					<td id="Calc-input-3"><button type="button">3</button></td>
+					<td id="Calc-input-subtract"><button type="button">-</button></td>
+					<td id="Calc-input-equals" rowspan="2"><button type="button">=</button></td>
+				</tr>
+				<tr>
+					<td id="Calc-input-0" colspan="2"><button type="button">0</button></td>
+					<td id="Calc-input-decimal"><button type="button">.</button></td>
+					<td id="Calc-input-add"><button type="button">+</button></td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="Calc-Case-Broken">
+			<div id="Calc-Case-top-buttons">
+				<button id="PWR-BTN-Before-Fix" onclick="powerOn(),clearAll(),displayZero()">Power Switch</button>
+				<button id="PWR-BTN-After-Fix" onclick="tryPowerOn(),clearAll(),displayZero()">Power Switch</button>
+				<button id="Battery-Dead">0%</button>
+				<input id="Calc-Math-Input" value="" readonly>
+				<input id="Calc-Math" value="" readonly>
+				<form id="decimal-options">
+					<input type="radio" id="DOdot">.<br>
+					<input type="radio" id="DOcomma">,
+				</form>
+			</div>
+			<table>
+				<tr>
+					<td class="Calc-display" colspan="5">
+						<div class="Calc-Input-Output-display">
+							<img id="image-calc-display-broken" src="Images/calcdisplaybroken.png">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td id="Calc-input-7"><button type="button">7</button></td>
+					<td id="Calc-input-8"><button type="button">8</button></td>
+					<td id="Calc-input-9"><button type="button">9</button></td>
+					<td id="Calc-input-divide"><button type="button">/</button></td>
+					<td id="Calc-input-ClearEverything"><button type="button">CE</button></td>
+				</tr>
+				<tr>
+					<td id="Calc-input-4"><button type="button">4</button></td>
+					<td id="Calc-input-5"><button type="button">5</button></td>
+					<td id="Calc-input-6"><button type="button">6</button></td>
+					<td id="Calc-input-multiply"><button type="button">*</button></td>
+					<td id="Calc-input-clear"><button type="button">C</button></td>
+				</tr>
+				<tr>
+					<td id="Calc-input-1"><button type="button">1</button></td>
+					<td id="Calc-input-2"><button type="button">2</button></td>
+					<td id="Calc-input-3"><button type="button">3</button></td>
+					<td id="Calc-input-subtract"><button type="button">-</button></td>
+					<td id="Calc-input-equals" rowspan="2"><button type="button">=</button></td>
+				</tr>
+				<tr>
+					<td id="Calc-input-0" colspan="2"><button type="button">0</button></td>
+					<td id="Calc-input-decimal"><button type="button">.</button></td>
+					<td id="Calc-input-add"><button type="button">+</button></td>
+				</tr>
+			</table>
+		</div>
+
+
+		<div id="Calc-Case-Back">
+			<div id="What-A-Waste">
+				<p id="Wasting-Good-Batteries">What a waste of good batteries...<br>Better go back to the store then.</p>
+			</div>
+			<div id="Battery-Case-Lid" onclick="openBatteryCaseLid()"><p>Ѳ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ѳ</p></div>
+			<div id="Battery-Case">
+				<div id="Batteries" onclick="removeOldBatteries()">
+					<div id="Battery-One">
+						<div id="Battery-One-Detail-One"></div>
+						<div id="Battery-One-Detail-Two"></div>
+					</div>
+					<div id="Battery-Two">
+						<div id="Battery-Two-Detail-One"></div>
+						<div id="Battery-Two-Detail-Two"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="Store"> <!-- fix hr of store buy menu -->
+			<div id="Store-Buy-Menu">
+				<div id="Store-Buy-Menu-Bar">Store Menu</div>
+				<ul id="Store-Items">
+					<li>Batteries</li>
+					<li>Pack of gum</li>
+					<li>New calculator</li>
+					<li>Patience</li>
+				</ul>
+				<ul id="Store-Price">
+					<li id="Batteries-Price">$1,00 <button id="Store-Buy-Button" onclick="buyNewBatteries()">Buy</button></li>
+					<li id="Out-Of-Stock">[Out of stock] <button id="Store-Buy-Button" disabled>Buy</button></li>
+					<li id="Out-Of-Stock">[Out of stock] <button id="Store-Buy-Button" disabled>Buy</button></li>
+					<li id="Out-Of-Stock">[Priceless] <button id="Store-Buy-Button" disabled>Buy</button></li>
+				</ul>
+				<hr>
+				<p id="Store-Balance-Index">Balance:</p><p id="Store-Balance">$15.00</p>
+				<p id="Store-Balance-Draw">-$1.00</p>
+			</div>
+			<div id="Store-Counter">
+				<div id="Store-Counter-Top"></div>
+				<div id="Batteries">
+					<div id="Scaled-Batteries">
+						<div id="Battery-One">
+							<div id="Battery-One-Detail-One"></div>
+							<div id="Battery-One-Detail-Two"></div>
+						</div>
+						<div id="Battery-Two">
+							<div id="Battery-Two-Detail-One"></div>
+							<div id="Battery-Two-Detail-Two"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+<!-- add position fixed slider for body/div/calculator scaling here -->
+	</body>
+
+
+
+	<script>
+		function input1() {
+			document.getElementById("Calc-input-output").value += "1";
+			document.getElementById("Calc-Math-Input").value += "1";
+		}
+		function input2() {
+			document.getElementById("Calc-input-output").value += "2";
+			document.getElementById("Calc-Math-Input").value += "2";
+		}
+		function input3() {
+			document.getElementById("Calc-input-output").value += "3";
+			document.getElementById("Calc-Math-Input").value += "3";
+		}
+		function input4() {
+			document.getElementById("Calc-input-output").value += "4";
+			document.getElementById("Calc-Math-Input").value += "4";
+		}
+		function input5() {
+			document.getElementById("Calc-input-output").value += "5";
+			document.getElementById("Calc-Math-Input").value += "5";
+		}
+		function input6() {
+			document.getElementById("Calc-input-output").value += "6";
+			document.getElementById("Calc-Math-Input").value += "6";
+		}
+		function input7() {
+			document.getElementById("Calc-input-output").value += "7";
+			document.getElementById("Calc-Math-Input").value += "7";
+		}
+		function input8() {
+			document.getElementById("Calc-input-output").value += "8";
+			document.getElementById("Calc-Math-Input").value += "8";
+		}
+		function input9() {
+			document.getElementById("Calc-input-output").value += "9"
+			document.getElementById("Calc-Math-Input").value += "9";
+		}
+		function input0() {
+			document.getElementById("Calc-input-output").value += "0";
+			document.getElementById("Calc-Math-Input").value += "0";
+		}
+		function inputAdd() {
+			document.getElementById("Calc-input-output").value += "+";
+			document.getElementById("Calc-Math-Input").value += " + ";
+		}
+		function inputSubtract() {
+			document.getElementById("Calc-input-output").value += "-";
+			document.getElementById("Calc-Math-Input").value += " - ";
+		}
+		function inputMultiply() {
+			document.getElementById("Calc-input-output").value += "*";
+			document.getElementById("Calc-Math-Input").value += " * ";
+		}
+		function inputDivide() {
+			document.getElementById("Calc-input-output").value += "/";
+			document.getElementById("Calc-Math-Input").value += " / ";
+		}
+		function inputDecimalDot() {
+			document.getElementById("Calc-input-output").value += ".";
+			document.getElementById("Calc-Math-Input").value += ".";
+			document.getElementById("innerHTMLDecimalType").innerHTML = ".";
+		}
+		function inputDecimalComma() {
+			document.getElementById("Calc-input-output").value += ",";
+			document.getElementById("Calc-Math-Input").value += ".";
+			document.getElementById("innerHTMLDecimalType").innerHTML = ",";
+		}
+		function equalsAnswer() {
+			document.getElementById("Calc-Math").value = (eval(document.getElementById("Calc-Math-Input").value));
+			document.getElementById("Calc-Math-Input").value = document.getElementById("Calc-Math").value;
+		}
+		function clearNow() {
+			var clearedNow = "";
+			document.getElementById("Calc-input-output").value = clearedNow;
+		}
+		function clearAll() {
+			var clearedAll = "";
+			document.getElementById("Calc-input-output").value = clearedAll;
+			document.getElementById("Calc-Math-Input").value = clearedAll;
+			document.getElementById("Calc-Math").value = clearedAll;
+		}
+		function displayZero() {
+			document.getElementById("calcReset").style.display = "block";
+		}
+		function hideZero() {
+			document.getElementById("calcReset").style.display = "none";
+		}
+		function evaluasteStringCalculation() {
+			document.getElementById("Calc-Math").value = (eval(document.getElementById("Calc-Math-Input").value));
+		}
+		function decimalCheck() {
+			if(document.getElementById("DOdot").checked) {
+				inputDecimalDot();
+			}else if(document.getElementById("DOcomma").checked) {
+				inputDecimalComma();
+			}
+		}
+		function powerOff() {
+			document.getElementById("Calc-Case-On").style.display = "none";
+			document.getElementById("Calc-Case-Off").style.display = "block";
+		}
+		function powerOn() {
+			document.getElementById("Calc-Case-On").style.display = "block";
+			document.getElementById("Calc-Case-Off").style.display = "none";
+		}
+		function smashCalculator() {
+			var audio = document.getElementById("glass-break");
+			audio.play();
+			document.getElementById("Break-Alert").style.display = "block";
+			document.getElementById("Calc-Math-Input").value = "ERROR";
+			document.getElementById("Calc-Math").value = "ERROR";
+			document.getElementById("Calc-input-output").value = "ERROR";
+			document.getElementById("Smash-Calculator-Button").style.display = "none";
+			document.getElementById("Calc-Case-Off").style.display = "none";
+			document.getElementById("Calc-Case-On").style.display = "none";
+			document.getElementById("Calc-Case-Broken").style.display = "block";
+			document.getElementById("PWR-BTN-After-Fix").style.display = "none";
+			document.getElementById("PWR-BTN-Before-Fix").style.display = "block";
+		}
+		function closeBreakAlert() {
+			document.getElementById("Break-Alert").style.display = "none";
+			document.getElementById("Flip-Calculator-Button").style.display = "block";
+		}
+		function flipCalculator() {
+			document.getElementById("Flip-Calculator-Button").style.display = "none";
+			document.getElementById("Calc-Case-Broken").style.display = "none";
+			document.getElementById("Calc-Case-Back").style.display = "block";
+			document.getElementById("Battery-Case").style.display = "block";
+			document.getElementById("Battery-Case-Lid").style.display = "block";
+			document.getElementById("After-Purchase-Allow-Returning-To-Front").style.display = "none";
+		}
+		function openBatteryCaseLid() {
+			document.getElementById("Battery-Case-Lid").style.display = "none";
+			document.getElementById("Battery-Case").style.display = "block";
+			document.getElementById("Close-Lid-Button").style.display = "block";
+			document.getElementById("Return-To-Front").style.display = "none";
+		}
+		function removeOldBatteries() {
+			document.getElementById("Batteries").style.right = "1000%";
+			document.getElementById("Go-To-Store-Button").style.display = "block";
+			document.getElementById("Store-Balance-Draw").style.bottom = "-0px";
+			document.getElementById("Close-Lid-Button").style.display = "none";
+			document.getElementById("Wasting-Good-Batteries").style.display = "block";
+		}
+		function goToStore() {
+			document.getElementById("Batteries").style.display = "none";
+			document.getElementById("Go-To-Store-Button").style.display = "none";
+			document.getElementById("Battery-Case").style.display = "none";
+			document.getElementById("Calc-Case-Back").style.display = "none";
+			document.getElementById("Store").style.display = "block";
+			document.getElementById("Scaled-Batteries").style.display = "block";
+			document.getElementById("Store-Balance-Draw").style.color = "white";
+			document.getElementById("Store-Balance-Draw").style.zIndex = "-1";
+			document.getElementById("Store-Balance").innerHTML = "$15,00";
+			document.getElementById("Batteries-Price").innerHTML = '$1,00 <button id="Store-Buy-Button" onclick="buyNewBatteries()">Buy</button>';
+			document.getElementById("Batteries-Price").style.color = "black";
+			document.getElementById("Wasting-Good-Batteries").style.display = "none";
+			document.getElementById("Calc-Case-On").style.display = "none";
+		}
+		function buyNewBatteries() {
+			var audio = document.getElementById("cashregister");
+			audio.play();
+			document.getElementById("Scaled-Batteries").style.display = "none";
+			document.getElementById("Store-Balance-Draw").style.color = "red";
+			document.getElementById("Store-Balance-Draw").style.bottom = "-50px";
+			document.getElementById("Store-Balance-Draw").style.zIndex = "1";
+			document.getElementById("Store-Balance").innerHTML = "$14,00";
+			document.getElementById("Batteries-Price").innerHTML = '[Out of stock] <button id="Store-Buy-Button" disabled>Buy</button>';
+			document.getElementById("Batteries-Price").style.color = "red";
+			document.getElementById("Back-To-Back-Button").style.display = "block";
+			document.getElementById("After-Purchase-Allow-Returning-To-Front").style.display = "block";
+		}
+		function backToBack() {
+			document.getElementById("Store").style.display = "none";
+			document.getElementById("Back-To-Back-Button").style.display = "none";
+			document.getElementById("Calc-Case-Back").style.display = "block";
+			document.getElementById("Battery-Case").style.display = "block";
+			document.getElementById("Batteries").style.display = "block";
+			document.getElementById("Insert-Batteries-Button").style.display = "block";
+		}
+		function insertBatteries() {
+			document.getElementById("Batteries").style.right = "0%";
+			document.getElementById("Close-Lid-Button").style.display = "block";
+			document.getElementById("Insert-Batteries-Button").style.display = "none";
+			document.getElementById("What-A-Waste").style.display = "block";
+		}
+		function closeLid() {
+			document.getElementById("Battery-Case-Lid").style.display = "block";
+			document.getElementById("Close-Lid-Button").style.display = "none";
+			document.getElementById("Return-To-Front").style.display = "block";
+		}
+		function backToFront() {
+			document.getElementById("What-A-Waste").style.display = "none";
+			document.getElementById("Calc-Case-Broken").style.display = "block";
+			document.getElementById("Batteries").style.display = "none";
+			document.getElementById("Battery-Case").style.display = "none";
+			document.getElementById("Calc-Case-Back").style.display = "none";
+			document.getElementById("Return-To-Front").style.display = "none";
+			document.getElementById("PWR-BTN-Before-Fix").style.display = "none";
+			document.getElementById("PWR-BTN-After-Fix").style.display = "block";
+			document.getElementById("Battery-Dead").innerHTML = "100%";
+			document.getElementById("Battery-Dead").style.borderColor = "green white green green";
+			document.getElementById("Battery-Dead").style.background = "green";
+			document.getElementById("Battery-Dead").innerHTML = "";
+		}
+		function tryPowerOn() {
+			var audio = document.getElementById("tada");
+			audio.play();
+			document.getElementById("PWR-BTN-Before-Fix").style.display = "block";
+			document.getElementById("PWR-BTN-After-Fix").style.display = "none";
+			document.getElementById("Calc-Case-Broken").style.display = "none";
+			document.getElementById("Calc-Case-On").style.display = "block";
+			clearAll()
+			displayZero()
+			document.getElementById("Change-Battery-Button").style.display = "none";
+			document.getElementById("Fix-Alert").style.display = "block";
+			document.getElementById("Battery-Dead").innerHTML = "100%";
+		}
+		function closeFixAlert() {
+			document.getElementById("Fix-Alert").style.display = "none";
+			document.getElementById("End-With-A-Bang").style.display = "block";
+		}
+		function endWithABang() {
+			var audio = document.getElementById("explosion");
+			audio.play();
+			document.getElementById("End-With-A-Bang").style.display = "none";
+			document.getElementById("Calc-Case-On").style.display = "none";
+			document.getElementById("Calc-Case-Off").style.display = "none";
+			document.getElementById("Explode-Alert").style.display = "block";
+			document.getElementById("Reset-Button").style.display = "block";
+			document.getElementById("Bang").style.display = "block";
+		}
+		function bangDisappear() {
+			document.getElementById("Bang").style.background = "rgba(255, 255, 0, 0.0)";
+		}
+		function sueTheBatteryStore() {
+			document.getElementById("Explode-Alert").style.display = "none";
+			document.getElementById("Store-Closed-Alert").style.display = "block";
+		}
+		function forgetIt() {
+			document.getElementById("Explode-Alert").style.display = "none";
+			document.getElementById("Store-Closed-Alert").style.display = "none";
+			bangDisappear()
+		}
+		function resetAll() {
+			document.getElementById("Calc-Case-On").style.display = "block";
+			document.getElementById("Reset-Button").style.display = "none";
+			document.getElementById("Smash-Calculator-Button").style.display = "block";
+			document.getElementById("Batteries").style.display = "block";
+			document.getElementById("PWR-BTN-Before-Fix").style.display = "block";
+			document.getElementById("PWR-BTN-After-Fix").style.display = "none";
+			document.getElementById("Battery-Dead").innerHTML = "0%";
+			document.getElementById("Battery-Dead").style.borderColor = "red white red red";
+			document.getElementById("Battery-Dead").style.background = "red";
+			document.getElementById("Bang").style.display = "none";
+			document.getElementById("Bang").style.background = "rgba(255, 150, 0, 1.0)";
+		}
+	</script>
+</html>

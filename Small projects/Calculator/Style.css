@@ -1,0 +1,648 @@
+body {
+	background: #282A36;
+	width: auto;
+	height: auto;
+	font-family: verdana, arial;
+	overflow: hidden;
+}
+
+#Smash-Calculator-Button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	display: block;
+}
+#Flip-Calculator-Button, #Go-To-Store-Button, #Back-To-Back-Button, #Insert-Batteries-Button, #Close-Lid-Button, #Return-To-Front, #Change-Battery-Button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	display: none;
+}
+#Reset-Button {
+	z-index: 10;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100px;
+	height: 60px;
+	background: silver;
+	font-size: 20px;
+	font-weight: bold;
+	border-width: 5px;
+	border-color: black;
+	border-style: outset;
+	border-radius: 5px;
+	display: none;
+}
+#Reset-Button:hover {
+	background: white;
+	border-width: 5px;
+	border-color: silver;
+	border-style: outset;
+	border-radius: 5px;
+}
+#After-Purchase-Allow-Returning-To-Front {
+	display: none;
+}
+#PWR-BTN-Before-Fix {
+	display: none;
+}
+#PWR-BTN-After-Fix {
+	display: none;
+}
+
+#Break-Alert, #Fix-Alert, #Explode-Alert, #Store-Closed-Alert {
+	z-index: 10;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin: 0px;
+	transform: translate(-50%, -50%);
+	width: 400px;
+	height: 150px;
+	background: white;
+	display: none;
+	border-width: 5px;
+	border-color: black;
+	border-style: outset;
+}
+#Break-Alert ul, #Fix-Alert ul, #Explode-Alert ul, #Store-Closed-Alert ul {
+	position: absolute;
+	left: 0px;
+	top: 35%;
+	color: black;
+	list-style: square;
+}
+#Break-Alert-Bar, #Fix-Alert-Bar, #Explode-Alert-Bar, #Store-Closed-Alert-Bar {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 35px;
+	background: black;
+}
+#Alert-Title {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	margin: 10px;
+	text-align: left;
+	color: white;
+}
+#Break-Alert-Close, #Fix-Alert-Close, #Explode-Alert-Close, #Store-Closed-Alert-Close {
+	z-index: 1;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	margin: 5px;
+	padding: 0px;
+	width: 25px;
+	height: 25px;
+	background: white;
+	border-width: 3px;
+	border-color: white;
+	border-style: outset;
+	color: black;
+}
+#Break-Alert-Close p, #Fix-Alert-Close p, #Explode-Alert-Close p, #Store-Closed-Alert-Close p {
+	text-align: center;
+	font-size: 16px;
+	margin: 0px;
+	padding: 0px;
+	color: black;
+}
+#Break-Alert-Close:hover, #Break-Alert-Close:hover p, #Fix-Alert-Close:hover, #Fix-Alert-Close:hover p {
+	background: red;
+	border-color: red;
+	color: white;
+}
+
+#Calc-Math-Input {
+	position: absolute;
+	left: -3px;
+	top: 25px;
+	margin-left: 23px;
+	width: 50%;
+	height: 20px;
+	padding-right: 5px;
+	font-size: 20px;
+	border-width: 0px;
+	border-radius: 9px;
+	text-align: right;
+	background-image: linear-gradient(to right, #c5d5c3, #d4dfd2, #e2eae1, #d4dfd2, #c5d5c3);
+	z-index: 2;
+	display: block;
+}
+
+#Calc-Case-Back {
+	display: none;
+}
+
+#Calc-Math {
+	position: relative;
+	left: -3px;
+	top: 0px;
+	margin-left: 23px;
+	width: 50%;
+	height: 20px;
+	padding-right: 5px;
+	font-size: 20px;
+	border-width: 0px;
+	border-radius: 9px;
+	text-align: right;
+	background-image: linear-gradient(to right, #c5d5c3, #d4dfd2, #e2eae1, #d4dfd2, #c5d5c3);
+	z-index: 2;
+	display: block;
+}
+
+#Calc-Case-On {
+	background-image: linear-gradient(to bottom, #4d4d4d, #0d0d0d, #0d0d0d, #0d0d0d, #0d0d0d);
+	width: 400px;
+	height: 400px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 15px;
+	border-style: outset;
+	border-color: #4d4d4d;
+	border-width: 10px;
+	border-radius: 15px;
+	display: block;
+}
+#Calc-Case-Off {
+	z-index: 1;
+	background-image: linear-gradient(to bottom, #4d4d4d, #0d0d0d, #0d0d0d, #0d0d0d, #0d0d0d);
+	width: 400px;
+	height: 400px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 15px;
+	border-style: outset;
+	border-color: #4d4d4d;
+	border-width: 10px;
+	display: none;
+}
+#Calc-Case-Broken {
+	z-index: 1;
+	background-image: linear-gradient(to bottom, #4d4d4d, #0d0d0d, #0d0d0d, #0d0d0d, #0d0d0d);
+	width: 400px;
+	height: 400px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 15px;
+	border-style: outset;
+	border-color: #4d4d4d;
+	border-width: 10px;
+	border-radius: 15px;
+	display: none;
+}
+#Calc-Case-Back {
+	z-index: 1;
+	background-image: linear-gradient(to bottom, #4d4d4d, #0d0d0d, #0d0d0d, #0d0d0d, #0d0d0d);
+	width: 400px;
+	height: 400px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 15px;
+	border-style: outset;
+	border-color: #4d4d4d;
+	border-width: 10px;
+	border-radius: 15px;
+	display: none;
+}
+
+#Battery-Case-Lid {
+	position: absolute;
+	z-index: 1;
+	bottom: 0px;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	width: 50%;
+	height: 20%;
+	background: gray;
+	border-style: outset;
+	border-width: 4px;
+	border-color: black;
+	text-align: center;
+	font-size: 25px;
+	color: silver;
+	display: block;
+}
+
+#Battery-Case {
+	position: absolute;
+	bottom: 0px;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	width: 50%;
+	height: 20%;
+	background: #323232;
+	border-style: inset;
+	border-width: 4px;
+	border-color: white;
+	display: block;
+}
+#Batteries {
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+	right: 0%;
+	transition: 1s;
+}
+
+#Battery-One {
+	position: absolute;
+	width: 96%;
+	height: 50%;
+	padding: 0px;
+	margin: 0px;
+	right: 0px;
+	top: 0px;
+	background-image: linear-gradient(to bottom, #050404, #7a7a7a, #1a1a1a, #7a7a7a, #050404);
+	border-color: gray;
+	border-style: outset;
+	border-width: 1px;
+}
+#Battery-One-Detail-One {
+	position: absolute;
+	width: 4%;
+	height: 43%;
+	padding: 0px;
+	margin: 0px;
+	left: -4%;
+	top: 28%;
+	background-image: linear-gradient(to bottom, gray,white,white,gray);
+}
+#Battery-One-Detail-Two {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	right: 50%;
+	background-image: linear-gradient(to bottom, #A4471B, #FDD5B1, #A4471B, #FDD5B1, #A4471B);
+}
+#Battery-Two {
+	position: absolute;
+	width: 96%;
+	height: 50%;
+	padding: 0px;
+	margin: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-image: linear-gradient(to bottom, #050404, #7a7a7a, #1a1a1a, #7a7a7a, #050404);
+	border-color: gray;
+	border-style: outset;
+	border-width: 1px;
+}
+#Battery-Two-Detail-One {
+	position: absolute;
+	width: 4%;
+	height: 43%;
+	padding: 0px;
+	margin: 0px;
+	left: -4%;
+	top: 28%;
+	background-image: linear-gradient(to bottom, gray,white,white,gray);
+}
+#Battery-Two-Detail-Two {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	right: 50%;
+	background-image: linear-gradient(to bottom, #A4471B, #FDD5B1, #A4471B, #FDD5B1, #A4471B);
+}
+
+#Store {
+	display: none;
+}
+#Store-Counter {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	bottom: 0px;
+	width: 900px;
+	height: 400px;
+	background-image: linear-gradient(to right, #D1A97B, #411E00);
+	background-size: 5% 100%;
+	background-repeat: repeat-x;
+}
+#Store-Counter-Top {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	top: 0px;
+	width: 105%;
+	height: 10%;
+	background-image: linear-gradient(to top, #190000, #A98153);
+}
+#Scaled-Batteries {
+	position: absolute;
+	left: 50%;
+	bottom: 100%;
+	transform: translate(-50%);
+	width: 15%;
+	height: 20%;
+}
+#Store-Buy-Menu {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 350px;
+	height: 200px;
+	background: white;
+	border-style: outset;
+	border-width: 5px;
+	border-color: black;
+}
+#Store-Buy-Menu hr { /* fix hr */
+	position: absolute;
+	width: 90%
+	left: 50%;
+	transform: translate(-50%);
+	color: red;
+}
+#Store-Buy-Menu-Bar {
+	position: absolute;
+	width: 340px;
+	height: 20%;
+	top: 0px;
+	left: 0px;
+	background: black;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	font-size: 100%;
+	border-style: outset;
+	border-width: 5px;
+	border-color: black;
+}
+#Store-Items {
+	padding-left: 15px;
+}
+#Store-Items {
+	position: absolute;
+	top: 20%;
+	left: 0px;
+	text-align: left;
+	list-style: square;
+	margin-left: 5px;
+}
+#Store-Price {
+	position: absolute;
+	top: 20%;
+	right: 0px;
+	height: 10px;
+	text-align: right;
+	list-style: none;
+	margin-right: 5px;
+}
+#Store-Buy-Button {
+	background: silver;
+	border-color: gray;
+}
+#Out-Of-Stock {
+	color: red;
+}
+#Store-Balance-Index {
+	position: absolute;
+ 	left: 20%;
+	bottom: 0px;
+	font-weight: bold;
+}
+#Store-Balance, #Store-Balance-Draw {
+	position: absolute;
+ 	right: 20%;
+	bottom: 0px;
+	font-weight: bold;
+}
+#Store-Balance-Draw {
+	z-index: -1;
+	color: white;
+	bottom: 0px;
+	transition: 3s;
+}
+#What-A-Waste {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	bottom: -50%;
+	left: 50%;
+	width: 400px;
+	height: auto;
+	display: none;
+}
+#Wasting-Good-Batteries {
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	display: none;
+}
+
+#Sue-The-Store {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	margin: 20px;
+}
+#Forget-It-1 {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	margin: 20px;
+}
+#Forget-It-2 {
+	position: absolute;
+	right: 0px;
+	top: 100%;
+	margin: 20px;
+	margin-right: -18px;
+}
+
+#image-calc-display-broken {
+	margin: 0px;
+	padding: 0px;
+	width: 380px;
+	height: 72px;
+	opacity: 10%
+	transition: 5s;
+}
+
+#Battery-Life {
+	z-index: 5;
+	position: absolute;
+	right: 50px;
+	top: 0px;
+	width: 50px;
+	height: 37px;
+	padding: 0px;
+	background: green;
+	border-style: inset;
+	border-radius: 10px 0px 0px 10px;
+	border-width: 3px 2px 3px 3px;
+	border-color: green white green green;
+	color: white;
+	transition: 0.5s;
+}
+#Battery-Dead {
+	z-index: 5;
+	position: absolute;
+	right: 50px;
+	top: 0px;
+	width: 50px;
+	height: 37px;
+	padding: 0px;
+	background: red;
+	border-style: inset;
+	border-radius: 10px 0px 0px 10px;
+	border-width: 3px 2px 3px 3px;
+	border-color: red white red red;
+	color: white;
+	transition: 0.5s;
+}
+
+#Power-Switch-Off, #Power-Switch-On, #PWR-BTN-Before-Fix, #PWR-BTN-After-Fix {
+	position: absolute;
+	width: 50px;
+	height: 37px;
+	top: 0px;
+	right: 0px;
+	padding: 0px;
+	font-weight: bold;
+	border-width: 3px 3px 3px 2px;
+	border-radius: 0px 10px 10px 0px;
+}
+#Power-Switch-Off, #PWR-BTN-Before-Fix, #PWR-BTN-After-Fix {
+	background: red;
+	border-color: red red red white;
+	color: white;
+}
+#Power-Switch-Off:hover, #PWR-BTN-After-Fix:hover {
+	background: green;
+	border-color: green green green white;
+}
+#Power-Switch-On {
+	background: green;
+	border-color: green green green white;
+	color: white;
+}
+#Power-Switch-On:hover {
+	background: red;
+	border-color: red red red white;
+}
+
+#Calc-Case-top-buttons {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	margin: 10px;
+	width: 100%;
+}
+
+table {
+	position: absolute;
+	left: 50%;
+	top: 100%;
+	transform: translate(-50%, -100%);
+	width: 406px;
+	height: auto;
+	padding: 10px;
+}
+tr {
+	background: #fdfdfd;
+}
+td {
+	position: relative
+	font-family: sans-serif, arial;
+	font-size: 40px;
+	text-align: center;
+	background: #0d0d0d;
+}
+
+.Calc-display {
+	text-align: right;
+	background-image: linear-gradient(to bottom, #3F3F3E, #262626, #0D0D0D, #0D0D0D);
+	padding-bottom: 10px;
+}
+.Calc-Input-Output-display {
+	position: relative;
+	height: 70px;
+}
+#decimal-options {
+	position: absolute;
+	z-index: 2;
+	top: 0px;
+	left: 250px;
+	width: auto;
+	height: auto;
+	padding-right: 5px;
+	background: gray;
+	font-weight: bold;
+	font-size: 20px;
+	border-radius: 5px;
+}
+
+#Calc-input-output, #calcReset {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	margin: 0px;
+	width: 374px;
+	height: 100%;
+	padding-right: 5px;
+	border-width: 0px;
+	border-radius: 10px;
+	text-align: right;
+	font-size: 30px;
+	background-image: linear-gradient(to right, #c5d5c3, #d4dfd2, #e2eae1, #d4dfd2, #c5d5c3);
+}
+#calcReset {
+	z-index: 1;
+	display: block;
+}
+
+table button {
+	font-size: 40px;
+	width: 100%;
+	height: 100%;
+	border-style: outset;
+	border-width: 5px;
+	border-radius: 5px;
+}
+button:hover {
+	background: #d9d9d9;
+	border-color: #b3b3b3;
+}
+#Calc-input-equals button {
+	height: 120px;
+}
+
+#End-With-A-Bang {
+	z-index: 10;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.0);
+	border-style: none;
+	display: none;
+}
+#Bang {
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 150, 0, 1.0);
+	transition: 5s;
+	display: none;
+}
+
+/* sort css properties */

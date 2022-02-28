@@ -1,0 +1,275 @@
+body {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+button {
+	box-shadow: 0 0 0 1px #000;
+	border-radius: 10px;
+	font-size: 20px;
+	background-color: #FFF;
+}
+	button:hover {
+		background-color: #DDD;
+	}
+	button::-moz-focus-inner {
+		border: 0; /* For Firefox, does not work for Chrome */
+	}
+
+
+.dropShadow {
+	-webkit-filter: drop-shadow(10px 15px 10px rgba(0, 0, 0, 0.6));
+}
+
+.fullCenter {
+	position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.horizontalCenter {
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+.obstacle {
+	position: absolute;
+	left: 0px;
+	transform: translate(-50%, -100%);
+	width: 50px;
+	height: 58px;
+	background-image: url("./Images/Traffic cone.png");
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+
+
+#gameBody {
+	position: absolute;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #BBB;
+}
+	#GUI {
+		z-index: 2;
+		position: relative;
+		top: 0;
+		width: 100%;
+		height: 100px;
+		max-height: 40%;
+		background-image: linear-gradient(to bottom, #FFC, #BB5);
+		box-shadow: inset 0 0 0 1px black;
+	}
+		#playerLife {
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			transform: translate(-50%, 100%);
+			width: 600px;
+			height: 30px;
+		}
+		#info, #boete, #gameOver {
+			display: none;
+			position: fixed;
+			z-index: 2;
+			width: 700px;
+			padding: 15px;
+			background-color: #FFF;
+			border: 1px solid black;
+		}
+		#info {
+			height: auto;
+			width: auto;
+		}
+			#openingsInfo {
+				position: relative;
+				top: 0;
+				width: 700px;
+			}
+		#boete {
+			height: 500px;
+		}
+		#gameOver {
+			height: 200px;
+		}
+			#gameOverInfo {
+				position: relative;
+				top: 0;
+				width: 700px;
+			}
+			#verkeersboete {
+				position: relative;
+				top: 0;
+				background-image: url("./Images/Boete.png");
+				width: 700px;
+				height: 600px;
+				background-position: cover;
+				background-repeat: no-repeat;
+				background-size: 100% auto;
+			}
+			#boete button {
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translate(-50%, 0);
+				margin-bottom: 5px;
+			}
+		
+		#difficulty {
+			position: absolute;
+			top: 50%;
+			left: 15px;
+			transform: translate(0, -50%);
+		}
+			#difficultyLabel {
+				position: relative;
+				float: left;
+				font-weight: bold;
+			}
+			#difficultyControl {
+				position: relative;
+				float: left;
+			}
+				#difficultyHardLabel {
+					color: #F00;
+					text-shadow: 0 0 1px black;
+				}
+				#difficultyMediumLabel {
+					color: #F90;
+					text-shadow: 0 0 1px black;
+				}
+				#difficultyEasyLabel {
+					color: #090;
+					text-shadow: 0 0 1px black;
+				}
+		
+		#moveControls {
+			position: relative;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 200px;
+			height: 80px;
+		}
+			#moveControls>table {
+				border-collapse: collapse;
+			}
+				#moveControls td {
+					padding: 0;
+					width: 40px;
+					height: 40px;
+				}
+					#moveControls button {
+						width: 100%;
+						height: 100%;
+					}
+
+		#speedometer {
+			position: absolute;
+			right: 15px;
+			top: 50%;
+			transform: translate(0, -150%);
+			font-weight: bold;
+		}
+		#totalScore {
+			position: absolute;
+			right: 15px;
+			top: 50%;
+			transform: translate(0, 50%);
+			font-weight: bold;
+		}
+	
+	#gameArea {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		transition: 1s;
+	}
+		#policeLights {
+			display: none;
+			z-index: 1;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			transition: 0.5s;
+			background-color: rgba(255, 255, 255, 0.0);
+		}
+		#ground {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			overflow-y: hidden;
+			background-color: #070;
+		}
+			#road {
+				position: relative;
+				left: 50%;
+				transform: translate(-50%, 0);
+				width: 600px;
+				height: 100%;
+				background-image: url("./Images/Road.png");
+				image-rendering: pixelated; /* For Chrome, does not work for Internet Explorer and Edge */
+				image-rendering: crisp-edges; /* For Firefox, does not work for Internet Explorer and Edge */
+				background-repeat: repeat;
+				background-size: 100% 70px;
+			}
+			#objectContainer {
+				position: absolute;
+				left: 50%;
+				transform: translate(-50%, 0);
+				width: 0;
+				height: 0;
+				bottom: 0;
+			}
+				#player {
+					position: relative;
+					bottom: 15px;
+					transform: translate(-50%, -100%);
+					width: 78px;
+					height: 138px;
+					background-image: url("./Images/Racecar green.png");
+					image-rendering: pixelated; /* For Chrome, does not work for Internet Explorer and Edge */
+					image-rendering: crisp-edges; /* For Firefox, does not work for Internet Explorer and Edge */
+					background-repeat: no-repeat;
+					background-size: cover;
+					transition: 0.2s;
+				}
+					#player:hover {
+						cursor: url(./Images/beep.cur), auto;
+					}
+					#policeCar {
+						position: relative;
+						width: 78px;
+						left: 110px;
+						bottom: -200px;
+						height: 138px;
+						background-image: url("./Images/Policecar.png");
+						image-rendering: pixelated; /* For Chrome, does not work for Internet Explorer and Edge */
+						image-rendering: crisp-edges; /* For Firefox, does not work for Internet Explorer and Edge */
+						background-repeat: no-repeat;
+						background-size: cover;
+					}
+						#policeLife {
+							display: none;
+							position: relative;
+							top: 0;
+							left: 50%;
+							width: 100px;
+							height: 15px;
+							transform: translate(-50%, -150%);
+						}
+				
+				#obstaclePositioner {
+					position: relative;
+					bottom: 1000px;
+					transform: translate(-50%, -100%);
+					width: 0px;
+					height: 0;
+				}

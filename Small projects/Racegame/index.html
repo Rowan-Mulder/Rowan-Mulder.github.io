@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="Rowan Mulder">
+		<meta name="description" content="Opdracht racegame">
+		<title>Racegame</title>
+		<link href="Style.css" type="text/css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+		<script defer src="Main.js"></script>
+	</head>
+	
+	<body>
+		<header></header>
+		
+		<main>
+			<div id="gameBody">
+				<div id="GUI">
+					<meter id="playerLife" min="0" low="3" high="6" optimum="10" max="10" value="10"></meter>
+					
+					<table id="info" class="fullCenter">
+						<thead>
+							<tr>
+								<th id="openingsInfo">
+									<p><b><u>Start Info</u></b></p><br>
+									<b>Controls:</b>
+									<ul style="text-align: left;">
+										<li><b>W</b>,<b>S</b> or <b>ArrowUP</b>,<b>ArrowDown</b> to change acceleration</li>
+										<li><b>A</b>,<b>D</b> or <b>ArrowLeft</b>,<b>ArrowRight</b> to steer when moving</li>
+										<li><b>Spacebar</b> to hold down the brakes</li>
+										<li><b>Return/Enter</b> to close menu's</li>
+									</ul>
+								</th>
+							</tr>
+						</thead>
+						
+						<tbody>
+							<tr>
+								<td>
+									<button onclick="HideInfo()" class="horizontalCenter" title="Press 'Enter' key">Ok</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<table id="gameOver" class="fullCenter">
+						<thead>
+							<tr>
+								<th id="gameOverInfo">
+									<p><b><u>GAME OVER</u></b></p><br>
+									<p id="gameOverScore">Your score: 0</p>
+								</th>
+							</tr>
+						</thead>
+						
+						<tbody>
+							<tr>
+								<td>
+									<button onclick="Reset()" class="horizontalCenter" title="Press 'Enter' key">Retry</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<table id="boete" class="fullCenter">
+						<thead>
+							<tr>
+								<th id="verkeersboete">
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<button onclick="BoeteBetalen()" title="Press 'Enter' key">Boete betalen</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<div id="difficulty">
+						<div id="difficultyLabel">Difficulty:</div>
+						<div id="difficultyControl">
+							<input type="radio" name="difficulty" id="difficultyHard" onchange="DifficultySet()">
+							<label for="difficultyHard" id="difficultyHardLabel">Hard</label><br>
+							<input type="radio" name="difficulty" id="difficultyMedium" onchange="DifficultySet()">
+							<label for="difficultyMedium" id="difficultyMediumLabel">Medium</label><br>
+							<input type="radio" name="difficulty" id="difficultyEasy" onchange="DifficultySet()" checked>
+							<label for="difficultyEasy" id="difficultyEasyLabel">Easy</label><br>
+						</div>
+					</div>
+					
+					<div id="moveControls">
+						<table>
+							<tbody>
+								<tr>
+									<td></td>
+									<td>
+										<button id="controlsUp" name="controlsUp" onclick="SpeedUp()" title="Press 'W' or 'ArrowUp' key">↑</button>
+									</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>
+										<button id="controlsLeft" name="controlsLeft" onclick="MoveLeft()" title="Press 'A' or 'ArrowLeft' key">←</button>
+									</td>
+									<td>
+										<button id="controlsDown" name="controlsDown" onclick="SlowDown()" title="Press 'S' or 'ArrowDown' key">↓</button>
+									</td>
+									<td>
+										<button id="controlsRight" name="controlsRight" onclick="MoveRight()" title="Press 'D' or 'ArrowRight' key">→</button>
+									</td>
+									<td colspan="2" style="text-align:center;">
+										<button id="brake" name="brake" onclick="Brake()" title="Press 'Spacebar' key">Brake</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					
+					<div id="speedometer">JavaScript has stopped working.</div>
+					<div id="totalScore">Score: 0</div>
+				</div>
+				
+				<div id="gameArea">
+					<div id="policeLights"></div>
+					<div id="ground">
+						<div id="road"></div>
+						<div id="objectContainer">
+							<div id="player" onclick="SoundPlayer(beep)" style="left: 0px;" class="dropShadow">
+								<audio id="engineStart" src="./Sounds/EngineStart.mp3"></audio>
+								<audio id="beep" src="./Sounds/Beep.mp3"></audio>
+								<audio id="skidLeft" src="./Sounds/SkidLeft.mp3"></audio>
+								<audio id="skidRight" src="./Sounds/SkidRight.mp3"></audio>
+								<audio id="longSkid" src="./Sounds/LongSkid.mp3"></audio>
+								<audio id="tada" src="./Sounds/tada.mp3"></audio>
+								<audio id="hit" src="./Sounds/Hit.mp3"></audio>
+								<audio id="explode" src="./Sounds/Explode.mp3"></audio>
+								<div id="policeCar" class="dropShadow">
+									<audio id="cashregister" src="./Sounds/Cashregister.mp3"></audio>
+									<audio id="policeSiren" src="./Sounds/PoliceSiren.mp3"></audio>
+									<meter id="policeLife" min="0" low="1" high="2" optimum="3" max="3" value="3"></meter>
+								</div>
+							</div>
+							<div id="obstaclePositioner"></div>
+							
+							<div id="obstacle9" class="obstacle" style="bottom: -500px"></div>
+							<div id="obstacle8" class="obstacle" style="bottom: -500px"></div>
+							<div id="obstacle7" class="obstacle" style="bottom: -500px"></div>
+							<div id="obstacle6" class="obstacle" style="bottom: -500px"></div>
+							<div id="obstacle5" class="obstacle" style="bottom: -500px"></div>
+							<div id="obstacle4" class="obstacle" style="bottom: -500px"></div>
+							<div id="obstacle3" class="obstacle" style="bottom: -500px"></div>
+							<div id="obstacle2" class="obstacle" style="bottom: -500px"></div>
+							<div id="obstacle1" class="obstacle" style="bottom: -500px"></div>
+							<div id="obstacle0" class="obstacle" style="bottom: -500px"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		
+		<footer></footer>
+	</body>
+</html>
