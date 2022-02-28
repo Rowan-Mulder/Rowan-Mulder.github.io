@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Rowan Mulder">
+		<meta name="description" content="VueJS - Components">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>VueJS - Components</title>
+		<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+		<link href="Style.css" type="text/css" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+		<script defer src="Main.js"></script>
+	</head>
+	
+	<body>
+		<header hidden>
+			<h1>Opdracht: VueJS</h1>
+			<p>Boter Kaas en Eieren met VueJS</p>
+			<hr>
+		</header>
+		
+		<main>
+			<h1>Boter Kaas en Eieren</h1>
+			<div id="boter-kaas-en-eieren">
+				<table>
+					<tbody>
+						<tr>
+							<td><button-vak></td>
+							<td><button-vak></td>
+							<td><button-vak></td>
+						</tr>
+						<tr>
+							<td><button-vak></td>
+							<td><button-vak></td>
+							<td><button-vak></td>
+						</tr>
+						<tr>
+							<td><button-vak></td>
+							<td><button-vak></td>
+							<td><button-vak></td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<button id="resetButton" v-on:click="ResetGame">Reset game</button>
+				<span id="aanDeBeurt" v-show="!winnaar & aantalZetten < 9">Aan de beurt: {{ beurt }}</span>
+			</div>
+		</main>
+		
+		<footer></footer>
+	</body>
+</html>

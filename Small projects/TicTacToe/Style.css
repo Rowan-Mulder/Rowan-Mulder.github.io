@@ -1,0 +1,54 @@
+:root {
+	--border: 3px outset #AAF;
+	--background: #EEE;
+	--textColor: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #334;
+		--textColor: #FFF;
+	}
+}
+
+
+
+body {
+	background-color: var(--background, #EEE);
+}
+
+h1 {
+	text-align: center;
+	color: var(--textColor, #000);
+}
+
+span, button {
+	font-family: 'Fredoka One', cursive;
+}
+
+
+
+#boter-kaas-en-eieren {
+	display: inline-block;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 0);
+	border: var(--border);
+	background-color: #779;
+}
+
+#resetButton {
+	padding: 10px;
+	margin: 10px;
+}
+
+#aanDeBeurt {
+	float: right;
+	margin: 20px;
+}
+
+.vak {
+	width: 150px;
+	height: 150px;
+	font-size: 40px;
+}
