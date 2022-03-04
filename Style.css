@@ -11,3 +11,11 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 40px;
 	margin-right: 25px;
 }
+
+a.btn[aria-expanded=false]::after {
+	content: "More info";
+}
+
+a.btn[aria-expanded=true]::after {
+	content: "Less info";
+}

@@ -2,13 +2,37 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Rowan Mulder">
-    <meta name="description" content="Trying out Github's static web hosting">
+    <meta name="author"
+          content="Rowan Mulder">
+    <meta name="description"
+          content="Trying out Github's static web hosting">
     <title>Github's static web hosting</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="Style.css" type="text/css" rel="stylesheet">
-    <script defer src="Main.js"></script>
+
+    <!--CSS-->
+    <!--Bootstrap-->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+    <link href="Style.css"
+          type="text/css"
+          rel="stylesheet">
+
+    <!--Scripts-->
+    <!--Bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <script defer
+            src="Main.js"></script>
 </head>
 
 <body>
@@ -18,111 +42,187 @@
 </header>
 
 <main>
-    <div class="mb-5">
+    <div class="container mb-5">
         <h3>Personal projects:</h3>
-        <div class="d-flex flex-wrap">
-            <div class="card" style="width: 18rem;">
-                <img src="Images/Horizon%20Rooster.png" class="card-img-top" alt="Horizon Rooster">
-                <div class="card-body">
-                    <h5 class="card-title">Horizon Rooster</h5>
-                    <p class="card-text">A website to simplify access to your Horizon College schedule by webscraping.
-                        Reducing the amount of requests, time and effort needed to check the current, upcoming and
-                        previous schedules.</p>
-                    <a href="https://rooster.hclabs.nl/"
-                       class="btn btn-primary">Demo</a>
-                    <a href="https://github.com/Rowan-Mulder/HorizonRooster"
-                       class="btn btn-primary">Repository</a>
+        <hr>
+
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card"
+                     style="width: 18rem;">
+                    <img src="Images/Horizon%20Rooster.png"
+                         class="card-img-top"
+                         alt="Horizon Rooster">
+                    <div class="card-body">
+                        <h5 class="card-title">Horizon Rooster</h5>
+                        <p class="card-text">A website to simplify access to your Horizon College schedule by
+                            webscraping. Reducing the amount of requests, time and effort needed to check the current,
+                            upcoming and previous schedules.</p>
+                        <a href="https://rooster.hclabs.nl/"
+                           class="btn btn-primary">Demo</a> <a href="https://github.com/Rowan-Mulder/HorizonRooster"
+                                                               class="btn btn-primary">Repository</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="card" style="width: 18rem;">
-                <img src="Images/Shape%20Generator.png" class="card-img-top" alt="Shape Generator">
-                <div class="card-body">
-                    <h5 class="card-title">Shape Generator</h5>
-                    <p class="card-text">Random SVG shape generator using polygon. This project was to visualise a
-                        potent idea for random lake generation in a videogame.</p>
-                    <a href="https://rowan-mulder.github.io/Shape-Generator.github.io"
-                       class="btn btn-primary">Demo</a>
-                    <a href="https://github.com/Rowan-Mulder/Shape-Generator.github.io"
-                       class="btn btn-primary">Repository</a>
+            <div class="col">
+                <div class="card"
+                     style="width: 18rem;">
+                    <img src="Images/Shape%20Generator.png"
+                         class="card-img-top"
+                         alt="Shape Generator">
+                    <div class="card-body">
+                        <h5 class="card-title">Shape Generator</h5>
+                        <p class="card-text">Random SVG shape generator using polygon. This project was to visualise a
+                            potent idea for random lake generation in a videogame.</p>
+                        <a href="https://rowan-mulder.github.io/Shape-Generator.github.io"
+                           class="btn btn-primary">Demo</a> <a
+                            href="https://github.com/Rowan-Mulder/Shape-Generator.github.io"
+                            class="btn btn-primary">Repository</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="card" style="width: 18rem;">
-                <img src="Images/Wild West Woodworker.png" class="card-img-top" alt="Wild West Woodworker">
-                <div class="card-body">
-                    <h5 class="card-title">Wild West Woodworker</h5>
-                    <p class="card-text">A school videogame project, intended to gloss over the inner workings of Unity.
-                        I prioritized mechanics above looks, so it currently looks a bit ugly.
-                    </p>
-                    <p class="card-text">I had a rough time working with animations, due to long flimsy work in Unity's
-                        animation editor
-                        resetting (possibly by user error). Needing a reliable method of describing animations,
-                        independent of Unity and potential updates deprecating hard work, I worked on triggering the
-                        animations by script (losing the ability to blend animations however).</p>
-                    <p class="card-text">I'm not sure I'll continue this project, let alone in Unity (at least on this
-                        current version), due to all the strange progress killing blockades during development. I'll
-                        check out Godot when it has proper 3D support and perhaps Unreal too.</p>
-                    <a href="https://github.com/Rowan-Mulder/WildWestWoodworker"
-                       class="btn btn-primary">Repository</a>
+            <div class="col">
+                <div class="card"
+                     style="width: 18rem;">
+                    <img src="Images/Wild West Woodworker.png"
+                         class="card-img-top"
+                         alt="Wild West Woodworker">
+                    <div class="card-body">
+                        <h5 class="card-title">Wild West Woodworker</h5>
+                        <p class="card-text">A school videogame project, intended to gloss over the inner workings of
+                            Unity. I prioritized mechanics above looks, so it currently looks a bit ugly.
+                        </p>
+
+                        <div>
+                            <p>
+                                <a class="btn btn-secondary"
+                                   data-toggle="collapse"
+                                   href="#collapseWildWestWoodworker"
+                                   role="button"
+                                   aria-expanded="false"
+                                   aria-controls="collapseWildWestWoodworker"></a>
+                            </p>
+                            <div class="collapse"
+                                 id="collapseWildWestWoodworker">
+                                <div class="card card-body">
+                                    <p class="card-text">I had a rough time working with animations, due to long flimsy
+                                        work in Unity's animation editor resetting (possibly by user error). Needing a
+                                        reliable method of describing animations, independent of Unity and potential
+                                        updates deprecating hard work, I worked on triggering the animations by script
+                                        (losing the ability to blend animations however).</p>
+                                    <p class="card-text">I'm not sure I'll continue this project, let alone in Unity (at
+                                        least at this current version), due to all the strange progress killing
+                                        blockades during development. I'll check out Godot when it has proper 3D support
+                                        and perhaps Unreal too.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://github.com/Rowan-Mulder/WildWestWoodworker"
+                           class="btn btn-primary">Repository</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="card" style="width: 18rem;">
-                <img src="Images/Racegame.png" class="card-img-top" alt="Racegame">
-                <div class="card-body">
-                    <h5 class="card-title">Racegame</h5>
-                    <p class="card-text">An attempt to make a racegame, with little javascript experience at the
-                        time.</p>
-                    <a href="Small%20projects/Racegame/index.html"
-                       class="btn btn-primary">Demo</a>
+            <div class="col">
+                <div class="card"
+                     style="width: 18rem;">
+                    <img src="Images/Racegame.png"
+                         class="card-img-top"
+                         alt="Racegame">
+                    <div class="card-body">
+                        <h5 class="card-title">Racegame</h5>
+                        <p class="card-text">An attempt to make a racegame, with little javascript experience at the
+                            time.</p>
+                        <a href="Small%20projects/Racegame/index.html"
+                           class="btn btn-primary">Demo</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="card" style="width: 18rem;">
-                <img src="Images/Calculator.png" class="card-img-top" alt="Calculator">
-                <div class="card-body">
-                    <h5 class="card-title">Calculator</h5>
-                    <p class="card-text">An attempt to make a calculator, with little javascript and CSS experience at
-                        the time.</p>
-                    <a href="Small%20projects/Calculator/Index.html"
-                       class="btn btn-primary">Demo</a>
+            <div class="col">
+                <div class="card"
+                     style="width: 18rem;">
+                    <img src="Images/Calculator.png"
+                         class="card-img-top"
+                         alt="Calculator">
+                    <div class="card-body">
+                        <h5 class="card-title">Calculator</h5>
+                        <p class="card-text">An attempt to make a calculator, with little javascript and CSS experience
+                            at the time.</p>
+                        <a href="Small%20projects/Calculator/Index.html"
+                           class="btn btn-primary">Demo</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="card" style="width: 18rem;">
-                <img src="Images/Clock.png" class="card-img-top" alt="Clock">
-                <div class="card-body">
-                    <h5 class="card-title">Clock</h5>
-                    <p class="card-text">An attempt to make a functioning clock (local time), with little javascript and
-                        CSS experience at the time.</p>
-                    <a href="Small%20projects/Clock/index.html"
-                       class="btn btn-primary">Demo</a>
+            <div class="col">
+                <div class="card"
+                     style="width: 18rem;">
+                    <img src="Images/Clock.png"
+                         class="card-img-top"
+                         alt="Clock">
+                    <div class="card-body">
+                        <h5 class="card-title">Clock</h5>
+                        <p class="card-text">An attempt to make a functioning clock (local time), with little javascript
+                            and CSS experience at the time.</p>
+                        <a href="Small%20projects/Clock/index.html"
+                           class="btn btn-primary">Demo</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="card" style="width: 18rem;">
-                <img src="Images/Flipping.png" class="card-img-top" alt="Flipping">
-                <div class="card-body">
-                    <h5 class="card-title">Market flipping tool</h5>
-                    <p class="card-text">A tool for market flipping, personally used in the MMORPG game (OldSchool)
-                        RuneScape.</p>
-                    <p>I knew some javascript at the time, but I wasn't following all the right coding conventions
-                        yet.</p>
-                    <p>It was a 'quick and dirty' personal creation, during the time flipping (in the game) was easy
-                        (and tax-free).</p>
-                    <a href="Small%20projects/Flipping/index.html"
-                       class="btn btn-primary">Demo</a>
+            <div class="col">
+                <div class="card"
+                     style="width: 18rem;">
+                    <img src="Images/Flipping.png"
+                         class="card-img-top"
+                         alt="Flipping">
+                    <div class="card-body">
+                        <h5 class="card-title">Market flipping tool</h5>
+                        <p class="card-text">A tool for market flipping, personally used in the MMORPG game (OldSchool)
+                            RuneScape.</p>
+
+                        <div>
+                            <p>
+                                <a class="btn btn-secondary"
+                                   data-toggle="collapse"
+                                   href="#collapseFlipping"
+                                   role="button"
+                                   aria-expanded="false"
+                                   aria-controls="collapseFlipping"></a>
+                            </p>
+                            <div class="collapse"
+                                 id="collapseFlipping">
+                                <div class="card card-body">
+                                    <p>I knew some javascript at the time, but I wasn't following all the right coding
+                                        conventions yet.</p>
+                                    <p>It was a 'quick and dirty' personal creation, during the time flipping (in the
+                                        game) was easy (and tax-free).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="Small%20projects/Flipping/index.html"
+                           class="btn btn-primary">Demo</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="card" style="width: 18rem;">
-                <img src="Images/TicTacToe.png" class="card-img-top" alt="Tic-Tac-Toe">
-                <div class="card-body">
-                    <h5 class="card-title">Tic-Tac-Toe</h5>
-                    <p class="card-text">Tic-Tac-Toe, made with Vue.js for practise.</p>
-                    <a href="Small%20projects/TicTacToe/index.html"
-                       class="btn btn-primary">Demo</a>
+            <div class="col">
+                <div class="card"
+                     style="width: 18rem;">
+                    <img src="Images/TicTacToe.png"
+                         class="card-img-top"
+                         alt="Tic-Tac-Toe">
+                    <div class="card-body">
+                        <h5 class="card-title">Tic-Tac-Toe</h5>
+                        <p class="card-text">Tic-Tac-Toe, made with Vue.js for practise.</p>
+                        <a href="Small%20projects/TicTacToe/index.html"
+                           class="btn btn-primary">Demo</a>
+                    </div>
                 </div>
             </div>
 
