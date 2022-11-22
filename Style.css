@@ -18,3 +18,39 @@ a.btn[aria-expanded=false]::after {
 a.btn[aria-expanded=true]::after {
 	content: "Less info";
 }
+
+.card > a {
+	position: relative;
+	overflow: hidden;
+}
+	.imageR, .imageG, .imageB {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0.0; /*animation start*/
+		animation: fade-in 0.5s forwards;
+		animation-delay: 0.5s;
+	}
+	.imageG, .imageB {
+		transition: margin 0.7s ease-in-out;
+		mix-blend-mode: difference;
+		mix-blend-mode: plus-lighter;
+	}
+	.card:hover .imageG {
+		margin: -2px 0 0 -10px;
+	}
+	.card:hover .imageB {
+		margin: 2px 0 0 10px;
+	}
+
+
+@keyframes fade-in {
+	from {
+		opacity: 0.0;
+	}
+	to {
+		opacity: 1.0;
+	}
+}
