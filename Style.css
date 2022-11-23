@@ -35,8 +35,8 @@ a.btn[aria-expanded=true]::after {
 	}
 	.imageG, .imageB {
 		transition: margin 0.7s ease-in-out;
-		mix-blend-mode: difference;
-		mix-blend-mode: plus-lighter;
+		/*mix-blend-mode: plus-lighter;*/ /* Works perfect on FireFox, but not Chrome */
+		mix-blend-mode: screen; /* Colors won't blend well on transition of opacity on pageload */
 	}
 	.card:hover .imageG {
 		margin: -2px 0 0 -10px;
