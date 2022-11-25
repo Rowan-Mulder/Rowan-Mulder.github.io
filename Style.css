@@ -57,7 +57,7 @@ a.btn[aria-expanded=true]::after {
 	overflow: hidden;
 	border-radius: 0.4rem;
 }
-	.card-title {
+	.card-title > a {
 		font-family: 'Francois One', sans-serif;
 		font-size: 1.3rem;
 		color: #2c0659;
