@@ -33,6 +33,19 @@ h1, h2, h3, h4, h5, h6 {
 		text-shadow: 0 0 30px #4b047391;
 	}
 
+.link-override {
+	color: #d23cff;
+}
+	.link-override:hover {
+		color: #932ab4;
+	}
+	.link-override:focus-visible {
+		outline-color: #ba2ad4;
+		border-radius: 2px;
+		padding-inline: 2px;
+		margin-inline: -2px;
+	}
+
 hr {
 	border-top: 1px solid rgba(157, 158, 255, 0.36);
 }
