@@ -3,6 +3,7 @@
 body {
 	padding: 10px;
 	background-image: url(Images/Textures/TexturesCom_Crackles0060_1_seamless_S.jpg);
+	background-size: 600px;
 	color: #d3b5ff;
 	font-family: 'Francois One', sans-serif;
 }
