@@ -40,6 +40,11 @@ hr {
 
 
 /* Bootstrap overrides */
+a:focus-visible {
+	display: inline-block;
+	outline-style: solid;
+}
+
 a.btn[aria-expanded=false]::after {
 	content: "More info";
 }
@@ -55,6 +60,13 @@ a.btn[aria-expanded=true]::after {
 		background-color: #6448F6;
 		border-color: #5E43E7;
 	}
+	.btn-primary.focus, .btn-primary:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
+		box-shadow: 0 0 0 .2rem #7555FF88;
+	}
+	.btn-primary:not(:disabled):not(.disabled):active {
+		background-color: #7555FF;
+		border-color: #7555FF;
+	}
 
 .card {
 	margin: 15px 15px 40px 15px;
@@ -68,11 +80,23 @@ a.btn[aria-expanded=true]::after {
 		font-size: 1.3rem;
 		color: #2c0659;
 	}
+		.card-title > a:hover {
+			text-decoration: underline;
+		}
+		.card-title > a:focus-visible {
+			outline-color: #2c0659;
+			border-radius: 2px;
+			padding-inline: 2px;
+			margin-inline: -2px;
+		}
 	.card > a {
 		position: relative;
 		overflow: hidden;
 		box-shadow: 0 0 10px #100033;
 	}
+		.card > a:focus-visible {
+			color: #5000ff;
+		}
 		.imageR, .imageG, .imageB {
 			position: absolute;
 			top: 0;
