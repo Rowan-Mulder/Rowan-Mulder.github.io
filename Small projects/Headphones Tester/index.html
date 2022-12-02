@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content="Headphones tester">
+    <meta name="author" content="Rowan Mulder">
+    <title>Headphones tester</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <script defer src="main.js"></script>
+</head>
+<body>
+<header></header>
+
+<main>
+    <div class="oscs">
+        <div class="oscSide">
+            <b>L</b>
+            <div class="oscSliders">
+                <div class="oscSlider" title="Frequency">
+                    <input id="oscFrequencyL" type="range" orient="vertical" min="0" max="10000" step="1" value="3355">
+                    <label for="oscFrequencyL">Frequency</label>
+                </div>
+                <div class="oscSlider" title="Volume">
+                    <input id="oscGainL" type="range" orient="vertical" min="0" max="1" step="0.01" value="0.5">
+                    <label for="oscGainL">Volume</label>
+                </div>
+            </div>
+            <div>
+                <span id="oscFrequencyDisplayL">203</span><span>Hz</span>
+            </div>
+            <div>
+                <select id="waveFormL" title="Waveform">
+                    <option>Sine</option>
+                    <option>Sawtooth</option>
+                    <option>Triangle</option>
+                    <option>Square</option>
+                </select>
+            </div>
+            <div class="playRow">
+                <input id="checkToggleL" type="checkbox">
+                <label for="checkToggleL">Toggle</label>
+                <button id="btnPlayLeft"></button>
+            </div>
+        </div>
+        <div class="oscSide">
+            <b>R</b>
+            <div class="oscSliders">
+                <div class="oscSlider" title="Frequency">
+                    <input id="oscFrequencyR" type="range" orient="vertical" min="0" max="10000" step="1" value="3355">
+                    <label for="oscFrequencyR">Frequency</label>
+                </div>
+                <div class="oscSlider" title="Volume">
+                    <input id="oscGainR" type="range" orient="vertical" min="0" max="1" step="0.01" value="0.5">
+                    <label for="oscGainR">Volume</label>
+                </div>
+            </div>
+            <div>
+                <span id="oscFrequencyDisplayR">203</span><span>Hz</span>
+            </div>
+            <div>
+                <select id="waveFormR" title="Waveform">
+                    <option>Sine</option>
+                    <option>Sawtooth</option>
+                    <option>Triangle</option>
+                    <option>Square</option>
+                </select>
+            </div>
+            <div class="playRow">
+                <input id="checkToggleR" type="checkbox">
+                <label for="checkToggleR">Toggle</label>
+                <button id="btnPlayRight"></button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer></footer>
+</body>
+</html>

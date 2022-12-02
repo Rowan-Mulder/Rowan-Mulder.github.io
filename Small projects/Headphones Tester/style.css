@@ -1,0 +1,73 @@
+:root {
+    --osc-slider-border-radius: 9px;
+}
+
+input[type=range][orient=vertical] {
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* Chromium */
+    width: 20px;
+    height: 160px;
+    padding: 0;
+}
+
+
+
+.oscs {
+    display: flex;
+    flex-direction: row;
+    user-select: none;
+}
+    .oscSide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 50px;
+    }
+        .oscSliders {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 8px;
+        }
+            .oscSlider {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border: 1px solid black;
+                padding: 4px 2px;
+            }
+                .oscSlider > * {
+                    margin-block: 5px;
+                }
+                .oscSlider > label {
+                    writing-mode: tb;
+                }
+            .oscSliders > .oscSlider:nth-last-child(1) {
+                border-radius: 0 var(--osc-slider-border-radius) var(--osc-slider-border-radius) 0;
+            }
+            .oscSliders > .oscSlider:nth-child(1) {
+                border-radius: var(--osc-slider-border-radius) 0 0 var(--osc-slider-border-radius);
+            }
+        .playRow {
+            white-space: nowrap;
+            text-align: center;
+            min-width: 85px;
+        }
+            #btnPlayRight, #btnPlayLeft {
+                display: block;
+                white-space: nowrap;
+                margin: 10px auto 0 auto;
+                min-width: 100%;
+                height: 40px;
+            }
+                .playRow>input[type=checkbox] + label + #btnPlayLeft:after {
+                    content: "Play left"
+                }
+                .playRow>input[type=checkbox] + label + #btnPlayRight:after {
+                    content: "Play right"
+                }
+                .playRow>input[type=checkbox]:checked + label + #btnPlayLeft:after {
+                    content: "Toggle left";
+                }
+                .playRow>input[type=checkbox]:checked + label + #btnPlayRight:after {
+                    content: "Toggle right";
+                }
