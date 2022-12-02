@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
 		left: 0;
 		margin: -60px -600px;
 		border: 20px #520085;
-		border-style: hidden solid dotted dotted;
+		border-style: hidden dotted dotted dotted;
 		border-radius: inherit;
 		transform: scaleX(0.1) scaleY(0.3) rotateX(65deg) rotateY(3deg) rotateZ(0deg);
 	}
