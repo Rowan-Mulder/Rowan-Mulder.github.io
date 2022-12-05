@@ -131,6 +131,13 @@ a.btn[aria-expanded=true]::after {
 		font-size: 1.3rem;
 		color: #2c0659;
 	}
+		.card-img-top {
+			position: relative;
+			z-index: 1;
+			opacity: 1.0; /* *animation start* */
+			animation: fade-out 0.5s forwards;
+			animation-delay: 0.5s;
+		}
 		.card-title > a:hover {
 			text-decoration: underline;
 		}
@@ -154,9 +161,6 @@ a.btn[aria-expanded=true]::after {
 			left: 0;
 			width: 100%;
 			height: 100%;
-			opacity: 0.0; /*animation start*/
-			animation: fade-in 0.5s forwards;
-			animation-delay: 0.5s;
 		}
 			.imageG, .imageB {
 				transition: margin 0.7s ease-in-out;
@@ -172,12 +176,12 @@ a.btn[aria-expanded=true]::after {
 
 
 
-@keyframes fade-in {
+@keyframes fade-out {
 	from {
-		opacity: 0.0;
+		opacity: 1.0;
 	}
 	to {
-		opacity: 1.0;
+		opacity: 0.0;
 	}
 }
 
