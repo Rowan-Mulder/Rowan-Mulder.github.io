@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ballonnenservice gegenereerde ballonnen</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+        .colorContainer {
+            border: 3px solid #777;
+            width: 50px;
+            height: 30px;
+            overflow: hidden;
+        }
+        .colorContainer input[type=color] {
+            padding: 0;
+            background: lightblue;
+            width: calc(100% + 12px);
+            height: calc(100% + 12px);
+            margin: -6px;
+        }
+        
+        body {
+            background: #222;
+            color: #bbb;
+        }
+        hr {
+            border-color: #fff;
+        }
+        
+        @keyframes popAnimation {
+            0% {
+                scale: 1;
+            }
+            1% {
+                scale: 1.5;
+            }
+            2% {
+                scale: 1;
+            }
+            5% {
+                scale: 0;
+            }
+            90% {
+                scale: 0;
+            }
+            100% {
+                scale: 1;
+            }
+        }
+        .balloon {
+            animation-duration: 4s;
+            animation-timing-function: forwards;
+        }
+        .balloonPop {
+            animation-name: popAnimation;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center py-4">SVG ballonnen</h1>
+        <hr>
+        
+        <div class="form-group">
+            <label for="inputColor">Kleur</label>
+            <div class="colorContainer">
+                <input id="inputColor" class="form-control" type="color"/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="inputHighlight">Highlight intensiteit</label>
+                <input id="inputHighlight" class="form-control" type="range" min="0" step="1" max="100" value="40"/>
+        </div>
+        
+        <hr>
+        
+        <div class="svgs">
+            <style>
+                #svg_ballon_groot_gradient_color_highlight { stop-color: #ffd66d; }
+                #svg_ballon_groot_gradient_color_base { stop-color: #f78d1e; }
+                
+                #svg_ballon_groot_rond_gradient_color_highlight { stop-color: #ffd66d; }
+                #svg_ballon_groot_rond_gradient_color_base { stop-color: #f78d1e; }
+            </style>
+            
+            <svg
+                id="svg_ballon_groot"
+                class="balloon"
+                width="68.582207mm"
+                height="89.978058mm"
+                viewBox="0 0 68.582206 89.978058"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+                <defs>
+                    <linearGradient id="svg_ballon_groot_gradient_def">
+                        <stop id="svg_ballon_groot_gradient_color_highlight" />
+                        <stop id="svg_ballon_groot_gradient_color_base" offset="1" />
+                    </linearGradient>
+                    <radialGradient
+                        id="svg_ballon_groot_gradient"
+                        xlink:href="#svg_ballon_groot_gradient_def"
+                        gradientUnits="userSpaceOnUse"
+                        gradientTransform="matrix(-1.7254607e-7,1.2521023,-1.0347411,-1.425926e-7,211.43782,61.288152)"
+                        r="34.291103"
+                        fy="140.60385"
+                        fx="59.022301"
+                        cy="140.60385"
+                        cx="59.022301"
+                    />
+                </defs>
+                <g transform="translate(-18.561907,-106.237232)">
+                    <path
+                        d="m 49.153945,196.05599 c -0.08906,-0.0891 0.203176,-0.80885 0.649415,-1.59954 0.446238,-0.79069 0.754342,-1.49462 0.684678,-1.56428 -0.06966,-0.0697 -0.986147,-0.36484 -2.036633,-0.65594 -7.227958,-2.00297 -15.034376,-8.41824 -20.78731,-17.08289 -3.190457,-4.80523 -5.868421,-10.96067 -7.403983,-17.01843 -1.086899,-4.28779 -1.491174,-7.35395 -1.641859,-12.4524 -0.123882,-4.1916 -0.06605,-5.35408 0.402581,-8.09178 2.238177,-13.07533 10.338273,-24.04112 21.20473,-28.70665 18.747417,-8.04924 39.29051,2.89421 45.486015,24.23072 1.050615,3.61818 1.439947,6.67449 1.432425,11.24479 -0.0292,17.7403 -8.577516,35.05094 -21.70621,43.95583 -3.136585,2.12748 -7.739123,4.19833 -9.330909,4.19833 -0.846285,0 -0.89104,0.61943 -0.150362,2.08109 0.373718,0.73749 0.679487,1.40439 0.679487,1.48199 0,0.19769 -7.283821,0.17741 -7.482065,-0.0208 z"
+                        style="fill: url(#svg_ballon_groot_gradient);"
+                    />
+                </g>
+            </svg>
+            
+            <svg
+                id="svg_ballon_groot_rond"
+                class="balloon"
+                width="68.791664mm"
+                height="68.791664mm"
+                viewBox="0 0 68.791664 68.791664"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+                <defs>
+                    <linearGradient id="svg_ballon_groot_rond_gradient_def">
+                        <stop id="svg_ballon_groot_rond_gradient_color_highlight" />
+                        <stop id="svg_ballon_groot_rond_gradient_color_base" offset="1"/>
+                    </linearGradient>
+                    <radialGradient
+                        id="svg_ballon_groot_rond_gradient"
+                        xlink:href="#svg_ballon_groot_rond_gradient_def"
+                        gradientUnits="userSpaceOnUse"
+                        cx="136.35939"
+                        cy="204.92744"
+                    />
+                </defs>
+                <g transform="translate(-93.265629,-186.81994)">
+                    <circle
+                        cx="127.66146"
+                        cy="221.21577"
+                        r="34.395832"
+                        style="fill: url(#svg_ballon_groot_rond_gradient);"
+                    />
+                </g>
+            </svg>
+        </div>
+    </div>
+    
+    <script>
+        let inputColor = document.querySelector("#inputColor");
+        let inputHighlight = document.querySelector("#inputHighlight");
+        let balloons = document.querySelectorAll(".balloon");
+        let balloonPopAudio = new Audio("balloon_pop.mp3");
+        
+        inputColor.value = "#f78d1e";
+        inputHighlight.value = 40;
+        
+        
+        inputColor.addEventListener("change", (event) => {
+            updateColors(event.target.value);
+        });
+        
+        inputHighlight.addEventListener("input", (event) => {
+            updateColors(inputColor.value);
+        });
+        
+        balloons.forEach(balloon => {
+            balloon.addEventListener("click", (e) => {
+                if (balloon.classList.contains("balloonPop")) {
+                    return;
+                }
+                
+                balloon.classList.add("balloonPop");
+                
+                balloonPopAudio.currentTime = 0;
+                balloonPopAudio.play();
+                
+                setTimeout(() => {
+                    balloon.classList.remove("balloonPop");
+                }, 4000);
+            });
+        });
+        
+        
+        function updateColors(hexColor) {
+            let highlightColor = lightenHSL(hexToHSL(hexColor, true), Number.parseInt(inputHighlight.value));
+            document.querySelector("#svg_ballon_groot_gradient_color_base").style.stopColor = hexColor;
+            document.querySelector("#svg_ballon_groot_gradient_color_highlight").style.stopColor = highlightColor;
+            document.querySelector("#svg_ballon_groot_rond_gradient_color_base").style.stopColor = hexColor;
+            document.querySelector("#svg_ballon_groot_rond_gradient_color_highlight").style.stopColor = highlightColor;
+        }
+        
+        function hexToHSL(hex, valuesOnly) {
+            let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            let r = parseInt(result[1], 16);
+            let g = parseInt(result[2], 16);
+            let b = parseInt(result[3], 16);
+            r /= 255, g /= 255, b /= 255;
+            let max = Math.max(r, g, b), min = Math.min(r, g, b);
+            let h, s, l = (max + min) / 2;
+            if (max == min) {
+                h = s = 0; // achromatic
+            } else {
+                let d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch(max) {
+                    case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                    case g: h = (b - r) / d + 2; break;
+                    case b: h = (r - g) / d + 4; break;
+                }
+                h /= 6;
+            }
+            
+            h = Math.round(h * 360);
+            s = Math.round(s * 100);
+            l = Math.round(l * 100);
+            
+            return valuesOnly ? {h,s,l} : `hsl(${h},${s}%,${l}%)`;
+        }
+        
+        function lightenHSL(hslValues, amount) {
+            return `hsl(${hslValues.h},${hslValues.s}%,${Math.max(0, Math.min(100, hslValues.l + amount))}%)`;
+        }
+        
+        
+        updateColors(inputColor.value);
+    </script>
+</body>
+</html>

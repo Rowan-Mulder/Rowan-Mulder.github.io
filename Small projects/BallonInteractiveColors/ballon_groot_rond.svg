@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+    id="svg_ballon_groot_rond"
+    width="68.791664mm"
+    height="68.791664mm"
+    viewBox="0 0 68.791664 68.791664"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+    <defs>
+        <linearGradient id="svg_ballon_groot_rond_gradient_def">
+            <stop id="svg_ballon_groot_gradient_color_highlight" style="stop-color: #ffc32c;" />
+            <stop id="svg_ballon_groot_gradient_color_base"      style="stop-color: #f78d1e;" offset="1"/>
+        </linearGradient>
+        <radialGradient
+            id="svg_ballon_groot_rond_gradient"
+            xlink:href="#svg_ballon_groot_rond_gradient_def"
+            gradientUnits="userSpaceOnUse"
+            cx="136.35939"
+            cy="204.92744"
+        />
+    </defs>
+    <g transform="translate(-93.265629,-186.81994)">
+        <circle
+            cx="127.66146"
+            cy="221.21577"
+            r="34.395832"
+            style="fill: url(#svg_ballon_groot_rond_gradient);"
+        />
+    </g>
+</svg>
